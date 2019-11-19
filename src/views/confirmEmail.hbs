@@ -1,0 +1,13 @@
+<p>Confirme sua conta pelo email enviado</p>
+<p>Não recebeu o email?</p>
+    <h2>Confirme seu email:</h2>
+    <form action="/sendemail" method="POST">
+        <input type="email" name="email">
+        <button type="submit">Enviar!</button>
+    </form>
+    {{#if Message}}
+        <div> {{Message}}</div>
+    {{/if}}
+<a href="/">Home</a>
+<a href="/login">Acessar</a>
+<a href="/register">Cadastrar</a>

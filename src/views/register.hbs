@@ -1,0 +1,13 @@
+<form action="/" method="POST">
+    <label>Nome: </label>
+    <input type="text" name="name" id="name">
+    <label>Email: </label>
+    <input type="email" name="email">
+    <label>Senha: </label>
+    <input type="password" name="password" id="senha">
+    {{#if errorMessage}}
+        <div> {{errorMessage}}</div>
+    {{/if}}
+    <button type="submit">Cadastrar</button>
+    <p>Ja possui cadastro? <a href="/login">Acesse</a></p>
+</form>
