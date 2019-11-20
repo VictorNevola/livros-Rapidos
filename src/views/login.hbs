@@ -1,15 +1,69 @@
-<form action="/login" method="POST">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../style/styleLogin.css">
+    <link href="https://fonts.googleapis.com/css?family=Tajawal&display=swap" rel="stylesheet">
+    <title>Login</title>
+</head>
+
+<body>
+    <nav>
+        <a>Logo</a>
+        <ul class="options">
+            <li>Sobre</li>
+            <li>Conheça</li>
+            <li>Solução</li>
+        </ul>
+
+        <div>
+            <a class="subscribe1" href="/">Home</a>
+        </div>
+    </nav>
+
+    <section class="form-containerr">
+        <div class="form-container">
+            <img class="img" src="../images/vertical.jpg" alt="">
+            <div>
+                <h2 class="loginTitle">Login</h2>
+                <form class="formL" action="/login" method="POST">
+                    {{#if errorMessage}}
+                    <div class="error"> {{errorMessage}}</div>
+                    {{/if}}
+                    <input class="inputs" type="text" placeholder="E-mail" name="email">
+                    <input class="inputs" type="password" placeholder="Senha" name="senha">
+                    {{#if errorConfirmed}}
+                    <a class="error" href="/confirmemail">{{errorConfirmed}}</a>
+                    {{/if}}
+                    <button id="submit" type="submit">Entrar</button>
+                </form>
+                <div class="register-container">
+                    <a class="register" href="/register">Não é cadastrado? Clique aqui</a>
+                    <a class="register" href="/changePassword">Esqueci a senha</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+{{!-- <form action="/login" method="POST">
     <label>Email: </label>
     <input type="email" name="email">
     <label>Senha: </label>
     <input type="password" name="password" id="senha">
     {{#if errorMessage}}
-        <div> {{errorMessage}}</div>
+    <div> {{errorMessage}}</div>
     {{/if}}
     {{#if errorConfirmed}}
-        <a href="/confirmemail">{{errorConfirmed}}</a>
+    <a href="/confirmemail">{{errorConfirmed}}</a>
     {{/if}}
     <button type="submit">Acessar</button>
     <p>Não possui cadastro? <a href="/register">Cadastrar</a></p>
     <p><a href="/changePassword">Esqueci a senha</a></p>
-</form>
+</form> --}}
+
+</html>
