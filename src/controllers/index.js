@@ -8,6 +8,7 @@ const sendConfirmEmail = require('./sendConfirmEmail');
 const confirmEmail = require('./confirmEmail');
 const changePassword = require('./changePassword');
 const sendChangePassword = require('./sendChangePassword');
+const changePasswordLink = require('./changePasswordLink');
 
 module.exports = {
     home,
@@ -19,5 +20,6 @@ module.exports = {
     sendConfirmEmail,
     confirmEmail,
     changePassword,
-    sendChangePassword
+    sendChangePassword,
+    changePasswordLink
 }

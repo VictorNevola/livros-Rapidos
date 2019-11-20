@@ -28,7 +28,8 @@ const createUser = (request, response) => {
                 UserModel.create({
                     name: userName,
                     password: hashPass,
-                    email: userEmail,
+                    email: userEmail, 
+                    auth: null,
                 })
                 .then((user) => {
                     const html = `http://localhost:3000/register/${user.id}` 
