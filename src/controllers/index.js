@@ -4,9 +4,10 @@ const createUser = require('./createUser');
 const confirmUser = require('./confirmUser');
 const login = require('./login');
 const authentication = require('./authentication');
-const sendEmail = require('./sendEmail');
+const sendConfirmEmail = require('./sendConfirmEmail');
 const confirmEmail = require('./confirmEmail');
 const changePassword = require('./changePassword');
+const sendChangePassword = require('./sendChangePassword');
 
 module.exports = {
     home,
@@ -15,7 +16,8 @@ module.exports = {
     confirmUser,
     login,
     authentication,
-    sendEmail,
+    sendConfirmEmail,
     confirmEmail,
-    changePassword
+    changePassword,
+    sendChangePassword
 }
