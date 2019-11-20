@@ -1,13 +1,64 @@
-<p>Confirme sua conta pelo email enviado</p>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../style/styleConfirm.css">
+    <link href="https://fonts.googleapis.com/css?family=Tajawal&display=swap" rel="stylesheet">
+    <title>Login</title>
+</head>
+
+<body>
+    <nav>
+        <a>Logo</a>
+        <ul class="options">
+            <li>Sobre</li>
+            <li>Conheça</li>
+            <li>Solução</li>
+        </ul>
+
+        <div>
+            <a class="subscribe1" href="/">Home</a>
+        </div>
+    </nav>
+
+    <section class="form-containerr">
+        <div class="form-container">
+            <img class="img" src="../images/vertical.jpg" alt="">
+            <div>
+                <h2 class="loginTitle">Confirme seu e-mail</h2>
+                <p style="color: white; text-align: center">Acesse o link enviado para seu email </br>e complete seu cadastro</p>
+                <p style="color: white; text-align: center; margin-top:10px">Caso não tenhce recebido o e-mail, </br>confirme abaixo</p>
+                <form class="formL" action="/sendConfirmEmail" method="POST">
+                    {{#if Message}}
+                    <div class="error"> {{Message}}</div>
+                    {{/if}}
+                    <input class="inputs" type="text" placeholder="E-mail" name="email">
+                    <button id="submit" type="submit">Enviar</button>
+                </form>
+                <div class="register-container">
+                    <a class="register" href="/login">Já possui cadastro? Clique aqui</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
+{{!-- <p>Confirme sua conta pelo email enviado</p>
 <p>Não recebeu o email?</p>
-    <h2>Confirme seu email:</h2>
-    <form action="/sendConfirmEmail" method="POST">
-        <input type="email" name="email">
-        <button type="submit">Enviar!</button>
-    </form>
-    {{#if Message}}
-        <div> {{Message}}</div>
-    {{/if}}
+<h2>Confirme seu email:</h2>
+<form action="/sendConfirmEmail" method="POST">
+    <input type="email" name="email">
+    <button type="submit">Enviar!</button>
+</form>
+{{#if Message}}
+<div> {{Message}}</div>
+{{/if}}
 <a href="/">Home</a>
 <a href="/login">Acessar</a>
-<a href="/register">Cadastrar</a>
+<a href="/register">Cadastrar</a> --}}

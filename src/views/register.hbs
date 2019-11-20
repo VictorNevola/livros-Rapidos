@@ -31,7 +31,7 @@
                 <h2 class="loginTitle">Cadastrar</h2>
                 <form class="formL" action="/" method="POST">
                     {{#if errorMessage}}
-                    <div> {{errorMessage}}</div>
+                    <div class="error"> {{errorMessage}}</div>
                     {{/if}}
                     <input class="inputs" type="text" placeholder="Nome" name="nome">
                     <input class="inputs" type="text" placeholder="E-mail" name="email">

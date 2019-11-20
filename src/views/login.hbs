@@ -31,12 +31,12 @@
                 <h2 class="loginTitle">Login</h2>
                 <form class="formL" action="/login" method="POST">
                     {{#if errorMessage}}
-                    <div> {{errorMessage}}</div>
+                    <div class="error"> {{errorMessage}}</div>
                     {{/if}}
                     <input class="inputs" type="text" placeholder="E-mail" name="email">
                     <input class="inputs" type="password" placeholder="Senha" name="senha">
                     {{#if errorConfirmed}}
-                    <a href="/confirmemail">{{errorConfirmed}}</a>
+                    <a class="error" href="/confirmemail">{{errorConfirmed}}</a>
                     {{/if}}
                     <button id="submit" type="submit">Entrar</button>
                 </form>

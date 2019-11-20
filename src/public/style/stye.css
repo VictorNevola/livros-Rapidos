@@ -216,3 +216,7 @@ footer > div > div > div > a {
   padding-bottom: 3%;
 }
 
+.error{
+  color: red;
+  margin-bottom: 15px;
+}
