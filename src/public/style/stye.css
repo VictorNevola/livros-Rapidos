@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Tajawal', sans-serif;
+}
+
+nav {
+  display: flex;
+  background: transparent;
+  justify-content: space-between;
+  min-height: 8vh;
+  align-items: center;
+  /* border-bottom: 1px solid mediumspringgreen; */
+  font-family: 'Tajawal', sans-serif;
+  font-size: large;
+  color: white;
+}
+
+nav > ul > li{
+  display: inline-block;
+}
+
+ul > li {
+  text-decoration: none;
+}
+
+.baner {
+  background: url('../images/sabri-tuzcu-wkO0q0UTqc8-unsplash.jpg') no-repeat center center;
+  background-size: 1400px 650px;
+  padding: 0 0 350px  0;
+  text-align: center;
+  /* display: block;
+  margin: auto; */
+}
+
+.tittle {
+  padding-top: 175px;
+  padding-bottom: 15px;
+  font-size: xx-large;
+  color: white;
+}
+
+.options > li {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.subscribe {
+  text-decoration: none;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  margin-right: 5px;
+  border: 1px solid mediumspringgreen;
+  background: mediumspringgreen;
+  color: white;
+}
+
+.subscribe1 {
+  text-decoration: none;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  border: 1px solid mediumspringgreen;
+  background: mediumspringgreen;
+  color: white;
+}
+
+.banner-btn {
+  border: 1px solid mediumspringgreen;
+  padding: 10px;
+  background: mediumspringgreen;
+  text-decoration: none;
+  color: white;
+}
+
+.about-container {
+  margin-top: 10%;
+}
+
+.about-container > div{
+  display: flex;
+  margin-top: 5%;
+  justify-content: center;
+}
+
+.about {
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 60px;
+  color: white;
+}
+
+.about-container > div > img {
+  width: 450px;
+}
+
+
+.about-container > div > div {
+  background: mediumspringgreen;
+  /* padding-right: 90px; */
+}
+
+.itens-ilustre {
+  margin-top: 10%;
+}
+
+
+.itens-container{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5%;
+}
+
+.itens-container > div {
+  /* max-width: 250px; */
+  padding: 25px 25px;
+}
+
+.itens-container > div > img {
+  width: 250px;
+}
+
+.item2 {
+  background: mediumspringgreen;
+}
+
+
+.items-container {
+  display: flex;
+  margin-top: 10%;
+  justify-content: center;
+}
+
+.otherFunc{
+  max-width: 450px;
+  padding-top: 25px;
+  padding-top: 10%;
+}
+
+.mini-item-container{
+  margin: 15px;
+}
+
+.mini-item-container > div > div  {
+  border: 1px solid mediumspringgreen;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  padding: 25px 25px;
+  max-width: 350px;
+  margin-left: 65px;
+}
+
+.column-left{
+  /* margin-left: 65px; */
+}
+
+.row > div > img {
+  width: 60px;
+}
+
+.sub-tittle {
+  font-size: 20px;
+  font-weight: 900;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+footer {
+  background: mediumspringgreen;
+  color: white;
+  font-family: 'Tajawal', sans-serif;
+  font-size: large;
+  font-weight: 900;
+}
+
+footer > div > div {
+  text-align: center;
+}
+
+footer > div > div > div > a {
+  text-decoration: none;
+  color: mediumspringgreen;
+  border: 1px solid white;
+  padding: 10px;
+  background: white;
+}
+
+.first-footer {
+  margin-top: 10%;
+  padding-top: 3%;
+}
+
+.second-footer, .third-footer, .fourth-footer {
+  padding-top: 1%;
+}
+
+.fourth-footer {
+  padding-bottom: 3%;
+}
+
