@@ -5,7 +5,9 @@ const confirmUser = (request, response) =>{
 
     UserModel.findByIdAndUpdate(userId, {confirmed: true}, {'new': true})
     .then((succes)=>{
-        response.redirect('/');
+        response.render('login', {
+            errorMessage: `Email Confirmado, Acesse e tenha controle das finanças 🚀`
+        });
     })
     .catch((err)=>{
         response.send('ERROR')

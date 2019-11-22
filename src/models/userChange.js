@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ms = require('ms');
 
 const userChange = new Schema ({
     idUser: String,
@@ -7,7 +8,7 @@ const userChange = new Schema ({
     createAt: {
         type: Date,
         default: Date.now,
-        expires: 120
+        expireAfterSeconds: 1800
     }
 });
 

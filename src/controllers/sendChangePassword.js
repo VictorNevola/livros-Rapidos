@@ -22,22 +22,25 @@ const sendChangePassword = (request, response) =>{
                     auth: hashPass,
                 })
                 .then((user)=>{
-                    console.log('Change Password ja criado');
+                    console.log('Change Password criado');
                 })
                 .catch((err)=>{
                     console.log('Erro na inserção, VERIFICAR!!!!!!');
                 })
+                const html = `<a href='http://localhost:3000/changepass/?token=${hashPass}'>Trocar</a>` 
+                sendEmail(subject, html, userEmail);
+                response.render('changePassword', {
+                    Message: `Para alterar a sua senha, por gentileza, acesse o link que enviamos para seu e-mail.`
+                });
+            }else {
+                response.render('changePassword', {
+                    Message: 'Email já enviado, verificar caixa de entrada!'
+                });
             }
         })
         .catch((err)=>{
             console.log('Change Password ja criado',err);
         });
-
-        const html = `http://localhost:3000/changepass/?token=${hashPass}` 
-            sendEmail(subject, html, userEmail);
-            response.render('changePassword', {
-                Message: `Email enviado com Sucesso!`
-            });
     })
     .catch((err)=>{
         response.render('changePassword', {
