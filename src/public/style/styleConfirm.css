@@ -99,6 +99,8 @@ ul > li {
   border-bottom: 1px solid white;
   color: white;
   width: 230px;
+  height: 30px;
+  font-size: larger;
 }
 
 .send {
@@ -154,4 +156,19 @@ ul > li {
 .error{
   color: red;
   margin-bottom: 15px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  /* border: 1px solid green; */
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px mediumspringgreen inset;
+  transition: background-color 5000s ease-in-out 0s;
 }

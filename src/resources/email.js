@@ -9,7 +9,7 @@ const sendEmail = (subject, html, userEmail)=>{
             user: gmailLogin,
             pass: gmailPassword
         }
-    });
+    }); 
     const email = {
         from: gmailLogin,
         to: userEmail,
