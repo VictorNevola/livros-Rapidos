@@ -3,7 +3,7 @@ const router = express.Router();
 
 const {home, register, createUser, confirmUser, login, 
     authentication, sendConfirmEmail, confirmEmail, changePassword,
-    sendChangePassword, changePasswordLink, updatePassword} = require('../controllers/index');
+    sendChangePassword, changePasswordLink, updatePassword, addIncome} = require('../controllers/index');
 
 router.get('/', home);
 router.get('/register', register);
@@ -17,6 +17,7 @@ router.get('/changePassword', changePassword);
 router.post('/sendChangePassword',sendChangePassword);
 router.get('/changepass/', changePasswordLink);
 router.post('/changepass/', updatePassword);
+router.get('/addIncome',addIncome);
 
 module.exports = {
     router,

@@ -10,6 +10,7 @@ const changePassword = require('./changePassword');
 const sendChangePassword = require('./sendChangePassword');
 const changePasswordLink = require('./changePasswordLink');
 const updatePassword = require('./updatePassword');
+const addIncome = require('./insertIncome');
 
 module.exports = {
     home,
@@ -23,5 +24,6 @@ module.exports = {
     changePassword,
     sendChangePassword,
     changePasswordLink,
-    updatePassword
+    updatePassword,
+    addIncome
 }
