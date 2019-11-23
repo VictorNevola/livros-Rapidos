@@ -1,13 +1,33 @@
-<h2>Adicionar clientes</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-<h4>Adicione os dados do cliente a abaixo</h4>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Clientes</title>
+  <link href="https://fonts.googleapis.com/css?family=Tajawal&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
 
-<form action="" method='POST'>
+<body>
 
-  <input type="text" placeholder="Nome">
-  <input type="text" placeholder="E-mail">
-  <input type="text" placeholder="Telefone">
+  <h2>Adicionar clientes</h2>
 
-  <button type="submit">Adicionar</button>
+  <h4>Adicione os dados do cliente a abaixo</h4>
 
-</form>
+  <form id="create-new-client">
+
+    <input type="text" id='clientName' placeholder="Nome">
+    <input type="text" id='clientEmail' placeholder="E-mail">
+    <input type="text" id='clientTellphone' placeholder="Telefone">
+
+    <button type="submit">Adicionar</button>
+
+  </form>
+
+<script type="text/javascript" src="../javascript/clients.js"></script>
+<script type="text/javascript" src="../javascript/clientsHandler.js"></script>
+</body>
+
+</html>
