@@ -23,11 +23,22 @@
     <input type="text" id='clientTellphone' placeholder="Telefone">
 
     <button type="submit">Adicionar</button>
-
   </form>
 
-<script type="text/javascript" src="../javascript/clients.js"></script>
-<script type="text/javascript" src="../javascript/clientsHandler.js"></script>
+
+
+  <section>
+    <div class="clients-container">
+      {{#each resp}}
+      <div class="clientName">Name: {{name}}</div>
+      <div class="clientEmail">Email: {{email}}</div>
+      <div class="clientTell">Telefone: {{tellphone}}</div>
+      {{/each}}
+    </div>
+  </section>
+
+  <script type="text/javascript" src="../javascript/clients.js"></script>
+  <script type="text/javascript" src="../javascript/clientsHandler.js"></script>
 </body>
 
 </html>
