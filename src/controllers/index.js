@@ -13,6 +13,7 @@ const addClients = require('./addClients');
 const save = require('./save');
 const updatePassword = require('./updatePassword');
 const addIncome = require('./insertIncome');
+const addIncomeBD = require('./addIncomeBD');
 
 module.exports = {
     home,
@@ -29,5 +30,6 @@ module.exports = {
     addClients,
     save,
     updatePassword,
-    addIncome
+    addIncome,
+    addIncomeBD,
 }

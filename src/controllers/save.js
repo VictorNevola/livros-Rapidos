@@ -1,7 +1,7 @@
 const {ClientModel} = require('../models/clients');
 
 const save = (request , response) => {
-  console.log(request.body);
+  response.send(request.body)
 }
 
 module.exports = save;

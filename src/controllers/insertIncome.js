@@ -1,5 +1,12 @@
+const getList = require('../resources/getListAll');
+const {IncomeModel} = require('../models/financialIncome');
+
+
 const addIncome = (request, response) => {
-    response.render('insertIncome');
+    getList(IncomeModel, 0)
+    .then((result) => {
+        response.render('insertIncome',{result});
+    })
 }
 
 module.exports = addIncome;
