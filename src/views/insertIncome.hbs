@@ -4,7 +4,6 @@
 <body>
     
 <h2>Adicionar Receita:</h2>
-<div class="message-container"></div>
 <form id="create-new-income">
     <label>Cliente:</label>
     <select name="clients" id="">
@@ -14,9 +13,9 @@
     <option value="audi">Audi</option>
     </select>
     <label >Quantidade:</label>
-    <input type="number" name="amount">
-    <label >Valor unitario:</label>
-    <input type="number" name="valueUnit">
+    <input type="number" name="amount" value="0" step="any" title="Adicionar quantidade, Não utilizar virgula somente ponto!">
+    <label >Valor unitario R$:</label>
+    <input type="number" name="valueUnit" value="0" step="any" title="Adicionar valor unitario, Não utilizar virgula somente ponto!">
     <label id="valueTotal"> Valor total: <strong></strong></label>
     <label>Forma de Pagamento:</label>
     <input type="text" name="formPGTO">
@@ -30,10 +29,11 @@
     <input type="file" name="invoice">
     <button type="submit">Adicionar</button>
 </form>
-<section>
+<div class="message-container"></div>
+<section id="income-List">
 {{#if result}}
-    {{#each result}}
     <h3> Lista de entradas </h3>
+    {{#each result}}
         <div>Cliente: {{nameClient}}</div>
         <div>Quantidade: {{amount}}</div>
         <div>Valor unitario: {{valueUnit}}</div>
@@ -43,12 +43,11 @@
         <div>Categoria: {{category}}</div>
         <div>Descrição: {{description}}</div>
         <div>Visualizar nota fiscal: {{invoice}}</div>
-
+        <HR></HR>
     {{/each}}
 
     {{else}}
         <h3>Não possui nenhuma entrada</h3>
-
 {{/if}}
 
 </section>

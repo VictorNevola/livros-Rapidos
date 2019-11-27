@@ -27,10 +27,11 @@ const addIncomeBD = (request, response) => {
     invoice: invoice
    })
    .then((income)=>{
-       console.log(income);
+    response.status(200).json(income);
    })
    .catch((err)=>{
-       console.log(err);
+    console.log(err);
+    response.status(400).json(err);
    })
 }
 

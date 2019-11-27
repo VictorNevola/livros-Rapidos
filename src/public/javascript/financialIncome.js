@@ -1,6 +1,6 @@
 class IncomeHandler {
 
-    constructor(baseUrl = "") {
+    constructor(baseUrl) {
       this.BASE_URL = baseUrl;
     }
 
@@ -18,8 +18,6 @@ class IncomeHandler {
         category: category,
         invoice: invoice,
       }
-  
-      return axios.post('/addIncomeBD', newIncome)
-
+      return axios.post(`${this.BASE_URL}/addIncomeBD`, newIncome)
     }
   }
