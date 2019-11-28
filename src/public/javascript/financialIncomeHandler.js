@@ -1,4 +1,4 @@
-const incomeHandler = new IncomeHandler('/');
+const incomeHandler = new IncomeHandler(window.location.origin);
 
 window.onload = () => {
     let valueUnit = document.querySelector('input[name=valueUnit]');
