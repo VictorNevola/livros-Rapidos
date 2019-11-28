@@ -4,9 +4,16 @@ const createUser = require('./createUser');
 const confirmUser = require('./confirmUser');
 const login = require('./login');
 const authentication = require('./authentication');
-const sendEmail = require('./sendEmail');
+const sendConfirmEmail = require('./sendConfirmEmail');
 const confirmEmail = require('./confirmEmail');
 const changePassword = require('./changePassword');
+const sendChangePassword = require('./sendChangePassword');
+const changePasswordLink = require('./changePasswordLink');
+const addClients = require('./addClients');
+const save = require('./save');
+const updatePassword = require('./updatePassword');
+const addIncome = require('./insertIncome');
+const addIncomeBD = require('./addIncomeBD');
 
 module.exports = {
     home,
@@ -15,7 +22,14 @@ module.exports = {
     confirmUser,
     login,
     authentication,
-    sendEmail,
+    sendConfirmEmail,
     confirmEmail,
-    changePassword
+    changePassword,
+    sendChangePassword,
+    changePasswordLink,
+    addClients,
+    save,
+    updatePassword,
+    addIncome,
+    addIncomeBD,
 }

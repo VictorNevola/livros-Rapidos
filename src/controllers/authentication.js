@@ -16,7 +16,7 @@ const authentication = (request, response) => {
     .then((user)=>{
         if(!user){
             response.render('login', {
-                errorMessage: `Email não existe, verificar!`,
+                errorMessage: `Email não cadastrado, verificar!`,
             });
             return;
         }
