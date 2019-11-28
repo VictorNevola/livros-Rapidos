@@ -9,7 +9,11 @@ const confirmEmail = require('./confirmEmail');
 const changePassword = require('./changePassword');
 const sendChangePassword = require('./sendChangePassword');
 const changePasswordLink = require('./changePasswordLink');
+const addClients = require('./addClients');
+const save = require('./save');
 const updatePassword = require('./updatePassword');
+const addIncome = require('./insertIncome');
+const addIncomeBD = require('./addIncomeBD');
 
 module.exports = {
     home,
@@ -23,5 +27,9 @@ module.exports = {
     changePassword,
     sendChangePassword,
     changePasswordLink,
-    updatePassword
+    addClients,
+    save,
+    updatePassword,
+    addIncome,
+    addIncomeBD,
 }
