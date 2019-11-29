@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Clientes</title>
+  <link rel="stylesheet" href="../style/styleClients.css">
   <link href="https://fonts.googleapis.com/css?family=Tajawal&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>Clientes</title>
 </head>
 
 <body>
@@ -15,7 +16,7 @@
   <h2>Adicionar clientes</h2>
 
   <h4>Adicione os dados do cliente a abaixo</h4>
-
+  {{!-- 
   <form id="create-new-client">
 
     <input type="text" id='clientName' placeholder="Nome">
@@ -23,19 +24,56 @@
     <input type="text" id='clientTellphone' placeholder="Telefone">
 
     <button type="submit">Adicionar</button>
-  </form>
+  </form> --}}
 
+  <div class="wrapper">
+    <table align="center" cellspacing=2 cellpadding=5 id='data-table'>
+      <tr>
+        <td>
+          <form id="create-new-client">
 
+            <input type="text" id='clientName' placeholder="Nome">
+            <input type="text" id='clientEmail' placeholder="E-mail">
+            <input type="text" id='clientTellphone' placeholder="Telefone">
 
-  <section>
-    <div class="clients-container">
+            <button type="submit">Adicionar</button>
+          </form>
+        </td>
+      </tr>
+
+      <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Telefone</th>
+      </tr>
+      {{!-- 
+      <tr id='row1'>
+        <td id='name_row1'>Teste1</td>
+        <td id='country_row1'>Teste11</td>
+        <td id='age_row1'>Teste111</td>
+        <td>
+          <input type="button" id="edit_button1" value="Edit" class="edit" onclick="edit_row('1')">
+          <input type="button" id="save_button1" value="Save" class="save" onclick="save_row('1')">
+          <input type="button" value="Delite" class="delete" onclick="delite_row('1')">
+        </td>
+      </tr> --}}
+
       {{#each resp}}
-      <div class="clientName">Name: {{name}}</div>
-      <div class="clientEmail">Email: {{email}}</div>
-      <div class="clientTell">Telefone: {{tellphone}}</div>
+      <tr>
+        <td class="clientName">{{name}}</td>
+        <td class="clientName">{{email}}</td>
+        <td class="clientName">{{tellphone}}</td>
+        <td class="buttons">
+          <input type="button" id="edit_button1" value="Edit" onclick="myClick(this, 'update')">
+          <input type="button" id="save_button1" value="Save" class="hide" onclick="save(this)">
+          <input type="button" value="Deletar"  onclick="myClick(this,'deletar')">
+        </td>
+      </tr>
       {{/each}}
-    </div>
-  </section>
+
+    </table>
+
+  </div>
 
   <script type="text/javascript" src="../javascript/clients.js"></script>
   <script type="text/javascript" src="../javascript/clientsHandler.js"></script>

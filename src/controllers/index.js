@@ -12,6 +12,8 @@ const changePasswordLink = require('./changePasswordLink');
 const addClients = require('./addClients');
 const save = require('./save');
 const list = require('./listAll');
+const deleteClients = require('./deleteClients');
+const updateClients = require('./updateClients');
 
 module.exports = {
     home,
@@ -27,5 +29,7 @@ module.exports = {
     changePasswordLink,
     addClients,
     save,
-    list
+    list,
+    deleteClients,
+    updateClients,
 }

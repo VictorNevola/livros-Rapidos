@@ -1,0 +1,20 @@
+.clients-container {
+  display: flex;
+  border: 1px solid red;
+  padding: 10px;
+}
+
+.buttons-container{
+  margin: 10px;
+}
+
+.delete {
+  background: red;
+  padding: 4px;
+  color: white;
+  margin: 5px;
+}
+
+.hide {
+  display: none;
+}
