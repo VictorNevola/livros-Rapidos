@@ -27,7 +27,8 @@ const authentication = (request, response) => {
             return;
         }
         if (bcrypt.compareSync(password, user.password)){
-            response.redirect('/');
+            request.session.currentUser = user;
+            response.render('ladingPage');
         }else {
             response.render('login', {
                 errorMessage: `Senha incorreta!`,

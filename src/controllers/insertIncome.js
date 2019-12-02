@@ -3,10 +3,16 @@ const {IncomeModel} = require('../models/financialIncome');
 
 
 const addIncome = (request, response) => {
-    getList(IncomeModel, 0)
-    .then((result) => {
-        response.render('insertIncome',{result});
-    })
+    if(!request.session.currentUser){
+        response.render('login',{
+            errorMessage: `Você não esta logado, verificar!`
+        });
+    }else {
+        getList(IncomeModel, request.session.currentUser._id)
+        .then((result) => {
+            response.render('insertIncome',{result});
+        })
+    }
 }
 
 module.exports = addIncome;
