@@ -20,4 +20,9 @@ class IncomeHandler {
       }
       return axios.post(`${this.BASE_URL}/addIncomeBD`, newIncome)
     }
+
+    deleteIncome(id){
+      return axios.delete(`${this.BASE_URL}/deletIncomeBD/${id}`)
+    } 
+
   }

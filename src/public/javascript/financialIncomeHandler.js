@@ -3,6 +3,11 @@ const incomeHandler = new IncomeHandler(window.location.origin);
 window.onload = () => {
     let valueUnit = document.querySelector('input[name=valueUnit]');
         valueUnit.onchange = totalPrice;
+    let deletButton = document.getElementsByClassName('btn-delete');
+
+    for(let i = 0; i<deletButton.length; i+=1){
+        deletButton[i].onclick = delet;
+      }
 };
 
 document.getElementById('create-new-income').addEventListener('submit', function(event) {
@@ -67,42 +72,36 @@ function addIncomeDom(result){
 
   let divParent = document.querySelector('#income-List');
 
-  let divClient = document.createElement('div');
-      divClient.innerText = `Cliente: ${result.nameClient}`;
-      divParent.appendChild(divClient);
-
-  let divAmount = document.createElement('div');
-      divAmount.innerText = `Quantidade: ${result.amount}`;
-      divParent.appendChild(divAmount);
+  let divIncome = document.createElement('div')
+      divIncome.id = 'income';
+      divIncome.innerHTML = `
+      <div>Cliente: ${result.nameClient}</div>
+      <div>Quantidade: ${result.amount}</div>
+      <div>Valor Unitario: ${result.valueUnit}</div>
+      <div>Valor Total: ${result.valueTotal}</div>
+      <div>Forma de Pagamento: ${result.formPGTO}</div>
+      <div>Vencimento: ${result.maturity}</div>
+      <div>Categoria: ${result.category}</div>
+      <div>Descrição: ${result.description}</div>
+      <div>Visualizar: ${result.invoice}</div>
+      <button class="btn-delete" name="${result._id}">Excluir</button>
+      <hr></hr>`
+      divParent.appendChild(divIncome);
   
-  let divValueUnit = document.createElement('div');
-      divValueUnit.innerText = `Valor unitario: ${result.valueUnit}`;
-      divParent.appendChild(divValueUnit);
+  let deletButton = document.getElementsByClassName('btn-delete');
+      for(let i = 0; i<deletButton.length; i+=1){
+          deletButton[i].onclick = delet;
+        }
+}
 
-  let divValueTotal = document.createElement('div');
-      divValueTotal.innerText = `Valor Total: ${result.valueTotal}`;
-      divParent.appendChild(divValueTotal);
-
-  let divFormPGTO = document.createElement('div');
-      divFormPGTO.innerText = `Forma de Pagamento: ${result.formPGTO}`;
-      divParent.appendChild(divFormPGTO);
-
-  let divMaturity = document.createElement('div');
-      divMaturity.innerText = `Vencimento: ${result.maturity}`;
-      divParent.appendChild(divMaturity);
-
-  let divCategory = document.createElement('div');
-      divCategory.innerText = `Categoria: ${result.category}`;
-      divParent.appendChild(divCategory);
-  
-  let divDescription = document.createElement('div');
-      divDescription.innerText = `Descrição: ${result.description}`;
-      divParent.appendChild(divDescription);
-  
-  let divInvoice = document.createElement('div');
-      divInvoice.innerText = `Visualizar nota fiscal: ${result.invoice}`;
-      divParent.appendChild(divInvoice);
-  
-  let hr = document.createElement('hr');
-      divParent.appendChild(hr);
+function delet(event){
+    let idIncome = event.srcElement.name;
+    incomeHandler.deleteIncome(idIncome)
+    .then((succes)=>{
+        message(`Deletado com sucesso!`)
+        event.target.parentElement.remove();
+    })
+    .catch((err)=>{
+        message(`Erro ao deletar, verificar ${err}`);
+    });
 }

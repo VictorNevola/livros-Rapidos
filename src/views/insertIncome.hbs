@@ -34,6 +34,7 @@
 {{#if result}}
     <h3> Lista de entradas </h3>
     {{#each result}}
+    <div id="income">
         <div>Cliente: {{nameClient}}</div>
         <div>Quantidade: {{amount}}</div>
         <div>Valor unitario: {{valueUnit}}</div>
@@ -42,8 +43,10 @@
         <div>Vencimento: {{maturity}}</div>
         <div>Categoria: {{category}}</div>
         <div>Descrição: {{description}}</div>
-        <div>Visualizar nota fiscal: {{invoice}}</div>
+        <div>Visualizar: {{invoice}}</div>
+        <button class="btn-delete" name="{{_id}}" type="button">Excluir</button>
         <HR></HR>
+    </div>
     {{/each}}
 
     {{else}}
