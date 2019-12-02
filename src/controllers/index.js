@@ -14,6 +14,7 @@ const save = require('./save');
 const updatePassword = require('./updatePassword');
 const addIncome = require('./insertIncome');
 const addIncomeBD = require('./addIncomeBD');
+const secret = require('./secret');
 
 module.exports = {
     home,
@@ -32,4 +33,5 @@ module.exports = {
     updatePassword,
     addIncome,
     addIncomeBD,
+    secret
 }

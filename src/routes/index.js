@@ -4,7 +4,7 @@ const router = express.Router();
 const {home, register, createUser, confirmUser, login, 
     authentication, sendConfirmEmail, confirmEmail, changePassword,
     sendChangePassword, changePasswordLink, updatePassword, addIncome,
-    addClients, save, addIncomeBD} = require('../controllers/index');
+    addClients, save, addIncomeBD, secret} = require('../controllers/index');
 
 router.get('/', home);
 router.get('/register', register);
@@ -21,7 +21,8 @@ router.get('/addClients', addClients);
 router.post('/save' , save);
 router.post('/changepass/', updatePassword);
 router.get('/addIncome',addIncome);
-router.post('/addIncomeBD', addIncomeBD)
+router.post('/addIncomeBD', addIncomeBD);
+router.get('/secret', secret);
 
 module.exports = {
     router,

@@ -1,7 +1,7 @@
 const {IncomeModel} = require('../models/financialIncome.js');
 
 const addIncomeBD = (request, response) => {
-   let idUser = request.body.idUser;
+   let idUser = request.session.currentUser._id;
    let idCliente = request.body.idCliente;
    let nameClient = request.body.nameClient;
    let amount = request.body.amount;
