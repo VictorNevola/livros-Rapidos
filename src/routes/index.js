@@ -3,10 +3,10 @@ const router = express.Router();
 
 const {home, register, createUser, confirmUser, login, 
     authentication, sendConfirmEmail, confirmEmail, changePassword,
-
+    deleteClients,updateClients,
     sendChangePassword, changePasswordLink, updatePassword, addIncome,
     addClients, save, addIncomeBD, secret, deletIncomeBD,
-    findOneById, updateBD} = require('../controllers/index');
+    findOneById, updateBD, landingPage} = require('../controllers/index');
 
 
 
@@ -32,6 +32,7 @@ router.delete('/deletIncomeBD/:id', deletIncomeBD);
 router.get('/findIncome/:id', findOneById);
 router.get('/secret', secret);
 router.patch('/updateIncome', updateBD);
+router.get('/landingPage', landingPage);
 
 
 module.exports = {

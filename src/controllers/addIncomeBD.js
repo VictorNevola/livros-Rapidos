@@ -1,4 +1,4 @@
-const {IncomeModel} = require('../models/financialIncome.js');
+const { IncomeModel } = require('../models/financialIncome.js');
 
 const addIncomeBD = (request, response) => {
    let idUser = request.session.currentUser._id;
@@ -15,26 +15,26 @@ const addIncomeBD = (request, response) => {
    let invoice = request.body.invoice;
 
    IncomeModel.create({
-    idUser: idUser,
-    idCliente: idCliente,
-    nameClient: nameClient,
-    amount: amount,
-    valueUnit: valueUnit,
-    valueTotal: valueTotal,
-    formPGTO: formPGTO,
-    maturity: maturity,
-    maturityFormat: maturityFormat,
-    description: description,
-    category: category,
-    invoice: invoice
+      idUser: idUser,
+      idCliente: idCliente,
+      nameClient: nameClient,
+      amount: amount,
+      valueUnit: valueUnit,
+      valueTotal: valueTotal,
+      formPGTO: formPGTO,
+      maturity: maturity,
+      maturityFormat: maturityFormat,
+      description: description,
+      category: category,
+      invoice: invoice
    })
-   .then((income)=>{
-    response.status(200).json(income);
-   })
-   .catch((err)=>{
-    console.log(err);
-    response.status(400).json(err);
-   })
+      .then((income) => {
+         response.status(200).json(income);
+      })
+      .catch((err) => {
+         console.log(err);
+         response.status(400).json(err);
+      })
 }
 
 module.exports = addIncomeBD;
