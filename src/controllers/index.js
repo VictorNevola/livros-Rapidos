@@ -18,6 +18,9 @@ const updatePassword = require('./updatePassword');
 const addIncome = require('./insertIncome');
 const addIncomeBD = require('./addIncomeBD');
 const secret = require('./secret');
+const deletIncomeBD = require('./deleteBD');
+const findOneById = require('./findBD');
+const updateBD = require('./updateBD');
 
 module.exports = {
     home,
@@ -39,5 +42,8 @@ module.exports = {
     updatePassword,
     addIncome,
     addIncomeBD,
-    secret
+    secret,
+    deletIncomeBD,
+    findOneById,
+    updateBD,
 }
