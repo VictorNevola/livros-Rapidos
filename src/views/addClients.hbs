@@ -12,10 +12,54 @@
 </head>
 
 <body>
+  <nav class="dash-nav">
+    <div>Logo Aqui</div>
+    {{!-- <ul class="ul-horizontal">
+      <li>Home</li>
+      <li>Despesas</li>
+      <li>Receitas</li>
+    </ul> --}}
 
-  <h2>Adicionar clientes</h2>
+    <div>
+      <a href="" class="log-out">Log Out</a>
+    </div>
 
-  <h4>Adicione os dados do cliente a abaixo</h4>
+  </nav>
+
+  <nav class="nav-side">
+    <ul>
+      <li>
+        <a onclick="openMenu(this)">
+          <img id="expand" class="icon-img" src="../images/expand.svg" alt="">
+        </a>
+        <a class="side-menu-item" href="">Menu</a>
+      </li>
+      <li>
+        <a href="">
+          <img class="icon-img" src="../images/icon2.svg" alt="">
+        </a>
+        <a class="side-menu-item" href="">Dahsboard</a>
+      </li>
+      <li>
+        <a href="">
+          <img class="icon-img" src="../images/icon1.svg" alt="">
+        </a>
+        <a class="side-menu-item" href="">Despesas</a>
+      </li>
+      <li>
+        <a href="">
+          <img class="icon-img" src="../images/icon3.svg" alt="">
+        </a>
+        <a class="side-menu-item" href="">Renda</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="Tittle">
+    <h2>Adicionar clientes</h2>
+
+    <h4>Adicione os dados do cliente a abaixo</h4>
+  </div>
   {{!-- 
   <form id="create-new-client">
 
@@ -26,25 +70,22 @@
     <button type="submit">Adicionar</button>
   </form> --}}
 
-  <div class="wrapper">
-    <table align="center" cellspacing=2 cellpadding=5 id='data-table'>
-      <tr>
-        <td>
-          <form id="create-new-client">
+  <div>
+    <div class="create-new-client ">
+      <form id="create-new-client">
 
-            <input type="text" id='clientName' placeholder="Nome">
-            <input type="text" id='clientEmail' placeholder="E-mail">
-            <input type="text" id='clientTellphone' placeholder="Telefone">
+        <input class="inputs" type="text" id='clientName' placeholder="Nome">
+        <input class="inputs" type="text" id='clientEmail' placeholder="E-mail">
+        <input class="inputs" type="text" id='clientTellphone' placeholder="Telefone">
 
-            <button type="submit">Adicionar</button>
-          </form>
-        </td>
-      </tr>
-
-      <tr>
+        <button class="button" type="submit">Adicionar</button>
+      </form>
+    </div>
+    <table align="center" cellspacing=30 cellpadding=5 id='data-table'>
+      <tr class="sub-title">
         <th>Nome</th>
         <th>E-mail</th>
-        <th>Telefone</th>
+        <th style="width: 150px;">Telefone</th>
       </tr>
       {{!-- 
       <tr id='row1'>
@@ -59,14 +100,20 @@
       </tr> --}}
 
       {{#each resp}}
-      <tr>
-        <td class="clientName">{{name}}</td>
-        <td class="clientName">{{email}}</td>
-        <td class="clientName">{{tellphone}}</td>
+      <tr class="clients">
+        <td class="clientName inputs" id={{_id}}>{{name}}</td>
+        <td class="clientName inputs">{{email}}</td>
+        <td class="clientName inputs">{{tellphone}}</td>
         <td class="buttons">
-          <input type="button" id="edit_button1" value="Edit" onclick="myClick(this, 'update')">
-          <input type="button" id="save_button1" value="Save" class="hide" onclick="save(this)">
-          <input type="button" value="Deletar"  onclick="myClick(this,'deletar')">
+          <input class="button" type="button" id="edit_button1" value="Edit" style="margin-right:10px"
+            onclick="myClick(this, 'update')">
+          {{!-- <a onclick="myClick(this, 'update')">
+            <img src="../images/icon3.svg" style="width: 30px;">
+          </a> --}}
+          <input type="button" id="save_button1" value="Save" class="hide" style="margin-right:10px"
+            onclick="save(this)">
+          <input class="button" type="button" value="Deletar" onclick="myClick(this,'deletar')">
+          <a href="">D</a>
         </td>
       </tr>
       {{/each}}

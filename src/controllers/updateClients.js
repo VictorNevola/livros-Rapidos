@@ -1,6 +1,7 @@
 const { ClientModel } = require('../models/clients');
 
 const updateClients = (request, response) => {
+  let emailSearch = request.body.emailP;
   let name = request.body.name;
   let email = request.body.email;
   let tellphone = request.body.tellphone;
@@ -13,7 +14,7 @@ const updateClients = (request, response) => {
 //     console.log(doc);
 // });
 
-  ClientModel.findOneAndUpdate({email:email}, {$set:{
+  ClientModel.findOneAndUpdate({email:emailSearch}, {$set:{
     name: name,
     email: email,
     tellphone: tellphone
