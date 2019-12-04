@@ -10,6 +10,7 @@ const IncomeSchema = new Schema({
     valueTotal: String,
     formPGTO: String,
     maturity: String,
+    maturityFormat: String,
     description: String,
     category: String,
     invoice: String,

@@ -9,6 +9,7 @@ const addIncomeBD = (request, response) => {
    let valueTotal = request.body.valueTotal;
    let formPGTO = request.body.formPGTO;
    let maturity = request.body.maturity;
+   let maturityFormat = request.body.maturityFormat;
    let description = request.body.description;
    let category = request.body.category;
    let invoice = request.body.invoice;
@@ -22,6 +23,7 @@ const addIncomeBD = (request, response) => {
     valueTotal: valueTotal,
     formPGTO: formPGTO,
     maturity: maturity,
+    maturityFormat: maturityFormat,
     description: description,
     category: category,
     invoice: invoice
