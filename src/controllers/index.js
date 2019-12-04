@@ -14,6 +14,10 @@ const save = require('./save');
 const list = require('./listAll');
 const deleteClients = require('./deleteClients');
 const updateClients = require('./updateClients');
+const updatePassword = require('./updatePassword');
+const addIncome = require('./insertIncome');
+const addIncomeBD = require('./addIncomeBD');
+const secret = require('./secret');
 
 module.exports = {
     home,
@@ -32,4 +36,8 @@ module.exports = {
     list,
     deleteClients,
     updateClients,
+    updatePassword,
+    addIncome,
+    addIncomeBD,
+    secret
 }

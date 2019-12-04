@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+const {MONGOCONNECT} = process.env;
 
 const mongoConnect = () => {
     mongoose
-        .connect('mongodb://localhost/projeto2', {useNewUrlParser: true})
+        .connect(MONGOCONNECT, {useNewUrlParser: true})
         .then((success) => {
             console.log(`Conectado`);
         })

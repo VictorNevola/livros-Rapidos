@@ -16,7 +16,7 @@ const authentication = (request, response) => {
     .then((user)=>{
         if(!user){
             response.render('login', {
-                errorMessage: `Email não existe, verificar!`,
+                errorMessage: `Email não cadastrado, verificar!`,
             });
             return;
         }
@@ -27,7 +27,8 @@ const authentication = (request, response) => {
             return;
         }
         if (bcrypt.compareSync(password, user.password)){
-            response.redirect('/');
+            request.session.currentUser = user;
+            response.render('ladingPage');
         }else {
             response.render('login', {
                 errorMessage: `Senha incorreta!`,

@@ -1,5 +1,9 @@
 const login = (request, response) => {
-    response.render('login');
+    if(request.session.currentUser){
+        response.render('ladingPage');
+    }else {
+        response.render('login');
+    }
 }
 
 module.exports = login;

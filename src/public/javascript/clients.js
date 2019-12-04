@@ -61,6 +61,7 @@ class ClientHandler {
   }
 }
 
+
 let id = '';
 
 function createDiv(id, name, email, tellphone) {
@@ -78,3 +79,4 @@ function createDiv(id, name, email, tellphone) {
   `
   return newDiv;
 }
+
