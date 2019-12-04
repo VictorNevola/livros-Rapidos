@@ -5,17 +5,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Clientes</title>
+  <link rel="stylesheet" href="../style/styleClients.css">
   <link href="https://fonts.googleapis.com/css?family=Tajawal&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>Clientes</title>
 </head>
 
 <body>
+  <nav class="dash-nav">
+    <div>Logo Aqui</div>
+    {{!-- <ul class="ul-horizontal">
+      <li>Home</li>
+      <li>Despesas</li>
+      <li>Receitas</li>
+    </ul> --}}
 
-  <h2>Adicionar clientes</h2>
+    <div>
+      <a href="" class="log-out">Log Out</a>
+    </div>
 
-  <h4>Adicione os dados do cliente a abaixo</h4>
+  </nav>
 
+  <nav class="nav-side">
+    <ul>
+      <li>
+        <a onclick="openMenu(this)">
+          <img id="expand" class="icon-img" src="../images/expand.svg" alt="">
+        </a>
+        <a class="side-menu-item" href="">Menu</a>
+      </li>
+      <li>
+        <a href="">
+          <img class="icon-img" src="../images/icon2.svg" alt="">
+        </a>
+        <a class="side-menu-item" href="">Dahsboard</a>
+      </li>
+      <li>
+        <a href="">
+          <img class="icon-img" src="../images/icon1.svg" alt="">
+        </a>
+        <a class="side-menu-item" href="">Despesas</a>
+      </li>
+      <li>
+        <a href="">
+          <img class="icon-img" src="../images/icon3.svg" alt="">
+        </a>
+        <a class="side-menu-item" href="">Renda</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="Tittle">
+    <h2>Adicionar clientes</h2>
+
+    <h4>Adicione os dados do cliente a abaixo</h4>
+  </div>
+  {{!-- 
   <form id="create-new-client">
 
     <input type="text" id='clientName' placeholder="Nome">
@@ -23,11 +68,62 @@
     <input type="text" id='clientTellphone' placeholder="Telefone">
 
     <button type="submit">Adicionar</button>
+  </form> --}}
 
-  </form>
+  <div>
+    <div class="create-new-client ">
+      <form id="create-new-client">
 
-<script type="text/javascript" src="../javascript/clients.js"></script>
-<script type="text/javascript" src="../javascript/clientsHandler.js"></script>
+        <input class="inputs" type="text" id='clientName' placeholder="Nome">
+        <input class="inputs" type="text" id='clientEmail' placeholder="E-mail">
+        <input class="inputs" type="text" id='clientTellphone' placeholder="Telefone">
+
+        <button class="button" type="submit">Adicionar</button>
+      </form>
+    </div>
+    <table align="center" cellspacing=30 cellpadding=5 id='data-table'>
+      <tr class="sub-title">
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th style="width: 150px;">Telefone</th>
+      </tr>
+      {{!-- 
+      <tr id='row1'>
+        <td id='name_row1'>Teste1</td>
+        <td id='country_row1'>Teste11</td>
+        <td id='age_row1'>Teste111</td>
+        <td>
+          <input type="button" id="edit_button1" value="Edit" class="edit" onclick="edit_row('1')">
+          <input type="button" id="save_button1" value="Save" class="save" onclick="save_row('1')">
+          <input type="button" value="Delite" class="delete" onclick="delite_row('1')">
+        </td>
+      </tr> --}}
+
+      {{#each resp}}
+      <tr class="clients">
+        <td class="clientName inputs" id={{_id}}>{{name}}</td>
+        <td class="clientName inputs">{{email}}</td>
+        <td class="clientName inputs">{{tellphone}}</td>
+        <td class="buttons">
+          <input class="button" type="button" id="edit_button1" value="Edit" style="margin-right:10px"
+            onclick="myClick(this, 'update')">
+          {{!-- <a onclick="myClick(this, 'update')">
+            <img src="../images/icon3.svg" style="width: 30px;">
+          </a> --}}
+          <input type="button" id="save_button1" value="Save" class="hide" style="margin-right:10px"
+            onclick="save(this)">
+          <input class="button" type="button" value="Deletar" onclick="myClick(this,'deletar')">
+          <a href="">D</a>
+        </td>
+      </tr>
+      {{/each}}
+
+    </table>
+
+  </div>
+
+  <script type="text/javascript" src="../javascript/clients.js"></script>
+  <script type="text/javascript" src="../javascript/clientsHandler.js"></script>
 </body>
 
 </html>

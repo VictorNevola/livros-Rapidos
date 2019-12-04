@@ -11,6 +11,9 @@ const sendChangePassword = require('./sendChangePassword');
 const changePasswordLink = require('./changePasswordLink');
 const addClients = require('./addClients');
 const save = require('./save');
+const list = require('./listAll');
+const deleteClients = require('./deleteClients');
+const updateClients = require('./updateClients');
 const updatePassword = require('./updatePassword');
 const addIncome = require('./insertIncome');
 const addIncomeBD = require('./addIncomeBD');
@@ -33,6 +36,9 @@ module.exports = {
     changePasswordLink,
     addClients,
     save,
+    list,
+    deleteClients,
+    updateClients,
     updatePassword,
     addIncome,
     addIncomeBD,
