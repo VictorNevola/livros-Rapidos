@@ -45,13 +45,16 @@ function myClick(element, operation) {
     telefone_div.innerHTML = `<input class="inputsChange" type="text" id="tell_text" value="${telefone}">`;
     let edit = parent.childNodes[1];
     let salvar = parent.childNodes[3];
+    let cancel = parent.childNodes[5];
     salvar.classList.toggle("button");
+    cancel.classList.toggle("button");
     salvar.classList.toggle("hide");
+    cancel.classList.toggle("hide");
     edit.classList.toggle("hide");
   }
 }
 
-function save(element) {
+function save(element, order) {
   let parent = element.parentNode;
   //Div com os dados do cliente
   let data = parent.parentNode;
@@ -67,6 +70,8 @@ function save(element) {
   let telefone = data.childNodes[5].childNodes[0].value;
   let edit = parent.childNodes[1];
   let save = parent.childNodes[3];
+  let cancel = parent.childNodes[5];
+
   console.log(edit);
   console.log(save);
   if (edit.classList.value === 'hide') {
@@ -75,8 +80,9 @@ function save(element) {
   }
   // let name_dive = `<a class="clientName">${name}</a>`;
   // name_div.insertAdjacentHTML("beforeend" , name_dive);
-
-  clientHandler.updateCLient(emailPesquise, name, email, telefone);
+  if (order === 'save') {
+    clientHandler.updateCLient(emailPesquise, name, email, telefone);
+  }
 
   name_div.innerHTML = `<a class="clientName inputsChange">${name}</a>`;
   email_div.innerHTML = `<a class="clientName inputsChange">${email}</a>`;
@@ -84,10 +90,11 @@ function save(element) {
 
   save.classList.toggle("hide");
   edit.classList.toggle("hide");
+  cancel.classList.toggle("hide");
 
 }
 
-function openMenu(menu){
+function openMenu(menu) {
   let parent = menu.parentNode;
   let filho = parent.parentNode;
   let pai = filho.parentNode;

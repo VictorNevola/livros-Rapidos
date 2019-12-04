@@ -4,7 +4,8 @@ const save = (request , response) => {
   let name = request.body.name;
   let email = request.body.email;
   let tellphone = request.body.tellphone;
-  let userID = "1";
+  let userID = request.session.currentUser._id;
+
 
   ClientModel.create({
     id_User: userID,
