@@ -41,10 +41,16 @@
         <a class="side-menu-item" href="/landingPage">Dahsboard</a>
       </li>
       <li>
+        <a href="/addCLients">
+          <img class="icon-img" src="../images/cliente.svg" alt="">
+        </a>
+        <a class="side-menu-item" href="/landingPage">Clientes</a>
+      </li>
+      <li>
         <a href="">
           <img class="icon-img" src="../images/icon1.svg" alt="">
         </a>
-        <a class="side-menu-item" href="">Despesas</a>
+        <a class="side-menu-item" href="">Receita</a>
       </li>
       <li>
         <a href="">
@@ -110,10 +116,12 @@
           {{!-- <a onclick="myClick(this, 'update')">
             <img src="../images/icon3.svg" style="width: 30px;">
           </a> --}}
-          <input type="button" id="save_button1" value="Save" class="hide" style="margin-right:10px" onclick="save(this,'save')">
-          <input type="button" id="cancel_button1" value="Cancel" class="hide" style="margin-right:10px" onclick="save(this,'cancel')">
+          <input type="button" id="save_button1" value="Save" class="hide" style="margin-right:10px"
+            onclick="save(this,'save')">
+          <input type="button" id="cancel_button1" value="Cancel" class="hide" style="margin-right:10px"
+            onclick="save(this,'cancel')">
           <input class="button" type="button" value="Deletar" onclick="myClick(this,'deletar')">
-          <a href="">D</a>
+          <a value={{_id}} href="/detail/:{{_id}}">Detalhes</a>
         </td>
       </tr>
       {{/each}}

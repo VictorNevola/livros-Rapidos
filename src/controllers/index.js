@@ -22,6 +22,7 @@ const deletIncomeBD = require('./deleteBD');
 const findOneById = require('./findBD');
 const updateBD = require('./updateBD');
 const landingPage = require('./landingPage');
+const clientDetail = require('./clientDetail');
 
 module.exports = {
     home,
@@ -48,4 +49,5 @@ module.exports = {
     findOneById,
     updateBD,
     landingPage,
+    clientDetail,
 }
