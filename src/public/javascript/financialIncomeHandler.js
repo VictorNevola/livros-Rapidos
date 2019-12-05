@@ -7,8 +7,8 @@ window.onload = () => {
 document.getElementById('create-new-income').addEventListener('submit', function(event) {
   event.preventDefault();
   let idUser = '';
-  let idCliente = '';
   let option = document.querySelector("select[name=clients]").selectedIndex;
+  let idCliente = document.querySelectorAll('select[name=clients]>option')[option].value;
   let client = document.querySelectorAll('select[name=clients]>option')[option].text;
   let amount = document.querySelector("input[name=amount]").value;
   let valueUnit = document.querySelector('input[name=valueUnit]').value;

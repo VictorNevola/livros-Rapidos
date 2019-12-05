@@ -1,17 +1,17 @@
 const getList = require('../resources/getListAll');
 const {IncomeModel} = require('../models/financialIncome');
+const {ClientModel} = require('../models/clients');
 
-
-const addIncome = (request, response) => {
+const addIncome = async (request, response) => {
     if(!request.session.currentUser){
         response.render('login',{
             errorMessage: `Você não esta logado, verificar!`
         });
     }else {
-        getList(IncomeModel, request.session.currentUser._id)
-        .then((result) => {
-            response.render('insertIncome',{result});
-        })
+        const financialIncomes = await getList(IncomeModel, request.session.currentUser._id);
+        const clients = await getList(ClientModel, request.session.currentUser._id);
+        console.log(clients);
+        response.render('insertIncome',{financialIncomes, clients});
     }
 }
 

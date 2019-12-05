@@ -1,16 +1,16 @@
 const { ClientModel } = require('../models/clients');
 
 const addClients = (request, response) => {
-  let id = request.session.currentUser._id;
-  console.log(id);
-  if (!id) {
+  if (!request.session.currentUser) {
     response.render('login', {
       errorMessage: `Você não esta logado, verificar!`
     });
   }
   else {
-    ClientModel.find({ 'id_User': id })
+    ClientModel.find({ 'idUser': request.session.currentUser._id })
       .then((resp) => {
+        console.log(request.session.currentUser._id)
+        console.log(resp)
         response.render('addClients', { resp })
       })
       .catch((error) => {

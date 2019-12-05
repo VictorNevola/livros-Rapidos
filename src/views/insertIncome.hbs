@@ -7,10 +7,9 @@
 <form id="create-new-income">
     <label>Cliente:</label>
     <select name="clients" id="">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="opel">Opel</option>
-    <option value="audi">Audi</option>
+    {{#each clients}}
+    <option value={{_id}}>{{name}}</option>
+    {{/each}}
     </select>
     <label >Quantidade:</label>
     <input type="number" name="amount" value="0" step="any" title="Adicionar quantidade, Não utilizar virgula somente ponto!">
@@ -31,9 +30,9 @@
 </form>
 <div class="message-container"></div>
 <section id="income-List">
-{{#if result}}
+{{#if financialIncomes}}
     <h3> Lista de entradas </h3>
-    {{#each result}}
+    {{#each financialIncomes}}
     <div id="income">
         <div>Cliente: {{nameClient}}</div>
         <div>Quantidade: {{amount}}</div>
