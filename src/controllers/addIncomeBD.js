@@ -1,4 +1,6 @@
 const {IncomeModel} = require('../models/financialIncome.js');
+// const PDFDocument = require('pdfkit');
+// const fs = require('fs');
 
 const addIncomeBD = (request, response) => {
    let idUser = request.session.currentUser._id;
@@ -13,6 +15,19 @@ const addIncomeBD = (request, response) => {
    let description = request.body.description;
    let category = request.body.category;
    let invoice = request.body.invoice;
+
+   // const doc = new PDFDocument();
+
+   // doc.pipe(fs.createWriteStream('income.pdf'));
+
+   // // doc.font(font)
+   // // .fontSize(25)
+   // // .text(description, 100, 100);
+
+   // doc.text('8=========D');
+
+   // doc.end();
+
 
    IncomeModel.create({
     idUser: idUser,

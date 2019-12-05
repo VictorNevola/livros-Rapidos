@@ -182,7 +182,6 @@ function updateBD(event){
    maturityFormat, description, category, invoice)
    .then((succes)=>{
       event.target.parentElement.remove();
-      console.log(succes)
       addIncomeDom(succes.data);
    })
 }
