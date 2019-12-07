@@ -18,10 +18,10 @@ app.set('view engine', 'hbs');
 app.set('views', viewsPath);
 app.use(session({
   secret: "basic-auth-secret",
-  cookie: { maxAge: 60000 },
+  cookie: { maxAge: 36000000 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 // 1 day
+    ttl: 48 * 60 * 60 // 1 day
   })
 }));
 app.use(router);

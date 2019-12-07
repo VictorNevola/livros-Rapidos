@@ -12,9 +12,13 @@ form.addEventListener('submit', function (event) {
   let email = document.getElementById('clientEmail').value;
   let tellphone = document.getElementById('clientTellphone').value;
 
-  clientHandler.createCLient(name, email, tellphone)
-
-  form.reset();
+  if (validateEmail(email) === true) {
+    clientHandler.createCLient(name, email, tellphone)
+    form.reset();
+  }
+  else {
+    console.log('errado');
+  }
 })
 
 let emailPesquise = '';
@@ -102,4 +106,42 @@ function openMenu(menu) {
   // document.getElementById('expand').src = '../images/icon3.svg';
   // console.log(img);
   pai.classList.toggle('open');
+}
+
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
+function validateEmail2() {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  let email = document.getElementById('clientEmail').value;
+  if (re.test(email) === true) {
+    console.log('email certo');
+  }
+  else {
+    document.getElementById('email-errado').classList.toggle('hide');
+  }
+}
+
+function phonenumber(inputtxt) {
+  let phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+  if (inputtxt.value.match(phoneno)) {
+    return true;
+  }
+  else {
+    alert("message");
+    return false;
+  }
+}
+
+function phonenumber2() {
+  var phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+  let tellphone = document.getElementById('clientTellphone').value;
+  if (phoneno.test(tellphone) === true) {
+    console.log('telefone certo')
+  }
+  else {
+    console.log('telefone errado')
+  }
 }
