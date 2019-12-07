@@ -72,11 +72,12 @@
 
         <input class="inputs" type="text" id='clientName' placeholder="Nome">
         <input class="inputs" type="text" id='clientEmail' placeholder="E-mail" onblur="validateEmail2()">
-        <input class="inputs" type="text" id='clientTellphone' placeholder="Telefone" value="+55" onblur="phonenumber2()">
+        <input class="inputs" type="text" id='clientTellphone' placeholder="Telefone" onblur="executeTelefone(this)" onfocus="tiraHifen(this)">
 
         <button class="button" type="submit">Adicionar</button>
       </form>
       <div id="email-errado" class="error hide"><p>Insira um e-mail válido</p></div>
+      <div id="telefone-errado" class="error hide"><p>Insira um telefone válido</p></div>
     </div>
     <table align="center" cellspacing=30 cellpadding=5 id='data-table'>
       <tr class="sub-title">
