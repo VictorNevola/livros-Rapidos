@@ -14,7 +14,6 @@ const save = (request , response) => {
     tellphone: tellphone
   })
   .then(client => {
-    console.log(client) ;
     response.status(200).json(client)
   })
   .catch(error => {

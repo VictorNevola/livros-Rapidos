@@ -1,15 +1,15 @@
-const incomeHandler = new IncomeHandler(window.location.origin);
+const expenseHandler = new ExpenseHandler(window.location.origin);
 
 window.onload = () => {
   updateButtons();
 };
 
-document.getElementById('create-new-income').addEventListener('submit', function(event) {
+document.getElementById('create-new-expense').addEventListener('submit', (event)=>{
   event.preventDefault();
   let idUser = '';
-  let option = document.querySelector("select[name=clients]").selectedIndex;
-  let idCliente = document.querySelectorAll('select[name=clients]>option')[option].value;
-  let client = document.querySelectorAll('select[name=clients]>option')[option].text;
+  let option = document.querySelector("select[name=provider]").selectedIndex;
+  let idProvider = document.querySelectorAll('select[name=provider]>option')[option].value;
+  let nameProvider = document.querySelectorAll('select[name=provider]>option')[option].text;
   let amount = document.querySelector("input[name=amount]").value;
   let valueUnit = document.querySelector('input[name=valueUnit]').value;
   let valueUnitformat = parseFloat(valueUnit).toLocaleString('pt-BT', {style: 'currency', currency: 'BRL'});
@@ -19,57 +19,39 @@ document.getElementById('create-new-income').addEventListener('submit', function
   let maturityFormat = maturity.split('-').reverse().join('/');
   let description = document.querySelector("input[name=description]").value;
   let category = document.querySelector("input[name=category]").value;
-  let invoice = document.querySelector("input[name=invoice]").value;
-
-  if(option === "" || client === "" || amount === "" || valueUnit === "" || valueTotal === "" || formPGTO === "" || maturity === ""
-  || description === "" || category === "" || invoice == ""){
+  let proofOfPayment = document.querySelector("input[name=payment]").value;
+  
+  if(option === "" || nameProvider === "" || amount === "" || valueUnit === "" || valueTotal === "" || formPGTO === "" || maturity === ""
+  || description === "" || category === "" || proofOfPayment == ""){
     message("Campos não podem estar vazios, verificar!");
     return;
   };
-
-  incomeHandler.createIncome(idUser, idCliente, client, amount, valueUnit, valueTotal, formPGTO, maturity, maturityFormat, description, category, invoice)
-  .then((income)=>{
-    addIncomeDom(income.data);
-    document.getElementById('create-new-income').reset();
+  expenseHandler.createExpenses(idUser, idProvider, nameProvider, amount, valueUnit, valueTotal, formPGTO,
+    maturity, maturityFormat, description, category, proofOfPayment)
+  .then((expense)=>{
+    addIncomeDom(expense.data)
+    document.getElementById('create-new-expense').reset();
     document.querySelector("#valueTotal>strong").textContent = "R$ 0,00";
     message(`Inserido com Sucesso!`);
   })
   .catch((err)=>{
     message(`Não foi possivel incluir, verificar! ${err}`);
-  })  
-
-});
-
-function totalPrice(event) {
-    let amount = event.target.parentElement.parentElement.querySelector("input[name=amount]").value;
-    let valueUnit = event.target.value;
-    let valueTotal = event.target.parentElement.parentElement.querySelector("#valueTotal>strong");
-    let acount = parseFloat(amount * valueUnit);
-    let acountFormat = acount.toLocaleString('pt-BT', {style: 'currency', currency: 'BRL'});
-    valueTotal.innerText = acountFormat;
-};
-
-function message(message){
-  let divParent = document.querySelector('.message-container');
-      divParent.innerHTML = '';
-  let divMessage = document.createElement('div');
-      divMessage.innerText = `Status: ${message}`;
-      divParent.appendChild(divMessage);  
-}
+  });
+})
 
 function addIncomeDom(result){
-  let divTitle = document.querySelector('#income-List>h3');
+  let divTitle = document.querySelector('#expense-List>h3');
   
   if(divTitle.textContent === "Não possui nenhuma entrada"){
     divTitle.textContent = "Lista de entradas";
   }
 
-  let divParent = document.querySelector('#income-List');
+  let divParent = document.querySelector('#expense-List');
 
   let divIncome = document.createElement('div')
       divIncome.id = 'income';
       divIncome.innerHTML = `
-      <div>Cliente: ${result.nameClient}</div>
+      <div value="${result._id}">Fornecedor: ${result.nameProvider}</div>
       <div>Quantidade: ${result.amount}</div>
       <div>Valor Unitario: ${result.valueUnit}</div>
       <div>Valor Total: ${result.valueTotal}</div>
@@ -77,7 +59,7 @@ function addIncomeDom(result){
       <div>Vencimento: ${result.maturityFormat}</div>
       <div>Categoria: ${result.category}</div>
       <div>Descrição: ${result.description}</div>
-      <div>Visualizar: ${result.invoice}</div>
+      <div>Visualizar: ${result.proofOfPayment}</div>
       <button class="btn-delete" name="${result._id}">Excluir</button>
       <button class="btn-edit" name="${result._id}">Editar</button>
       <hr></hr>`
@@ -86,23 +68,22 @@ function addIncomeDom(result){
 }
 
 function delet(event){
-    let idIncome = event.srcElement.name;
-    incomeHandler.deleteIncome(idIncome)
-    .then((succes)=>{
-        message(`Deletado com sucesso!`)
-        event.target.parentElement.remove();
-    })
-    .catch((err)=>{
-        message(`Erro ao deletar, verificar ${err}`);
-    });
+  expenseHandler.deletExpense(event.srcElement.name)
+  .then((succes)=>{
+      message(`Deletado com sucesso!`)
+      event.target.parentElement.remove();
+  })
+  .catch((err)=>{
+      message(`Erro ao deletar, verificar ${err}`);
+  });
 }
 
 function edit(event){
-  let idIncome = event.srcElement.name;
+  let optionSelect = event.target.parentElement.childNodes[1].getAttribute('value');
   let parent = event.target.parentElement;
-  let client = parent.childNodes[1];
-      client.innerHTML = `<label>Cliente: </label>
-      <select name="clients" id="clients">
+  let provider = parent.childNodes[1];
+      provider.innerHTML = `<label>Fornecedor: </label>
+      <select name="provider" id="provider">
       </select>`
   let amount = parent.childNodes[3];
   let valueUnit = parent.childNodes[5];
@@ -111,22 +92,25 @@ function edit(event){
   let maturity = parent.childNodes[11];
   let category = parent.childNodes[13];
   let description = parent.childNodes[15];
-  let invoice = parent.childNodes[17];
+  let proofOfPayment = parent.childNodes[17];
   let btnDelet = parent.childNodes[19];
   let btnEdit = parent.childNodes[21];
 
-  incomeHandler.findOneRegisterIncome(idIncome)
+  expenseHandler.findOneRegisterExpense(event.srcElement.name)
   .then((result)=>{
     let clients = result.data.clients;
-    let select = client.querySelector('select[name=clients]');
+    let select = provider.querySelector('select[name=provider]');
 
     clients.forEach(element => {
       let option = document.createElement('option');
           option.value = element._id;
           option.innerText = element.name;
+          if(element._id === optionSelect){
+            option.selected = true
+          }
           select.appendChild(option);
     });
-
+    
     amount.innerHTML = `<label>Quantidade: </label>
     <input class="amount" type="number" name="amount" value="${result.data.succes.amount}" step="any" title="Adicionar quantidade, Não utilizar virgula somente ponto!">
     `
@@ -147,8 +131,8 @@ function edit(event){
     description.innerHTML = `<label>Descrição:</label>
     <input type="text" name="description" value="${result.data.succes.description}">
     `
-    invoice.innerHTML = `<label>Nota fiscal:</label>
-    <input type="file" name="invoice" value="${result.data.succes.invoice}">
+    proofOfPayment.innerHTML = `<label>Comprovante/NF:</label>
+    <input type="file" name="proofOfPayment" value="${result.data.succes.invoice}">
     `
     btnDelet.classList.remove('btn-delete');
     btnDelet.classList.add('btn-update');
@@ -161,13 +145,14 @@ function edit(event){
     btnEdit.innerText = 'Cancelar';
 
     updateButtons();
+
   })
 }
 
 function cancel(event){
   let idIncome = event.srcElement.name;
   let parent = event.target.parentElement;
-  let client = parent.childNodes[1];
+  let provider = parent.childNodes[1];
   let amount = parent.childNodes[3];
   let valueUnit = parent.childNodes[5];
   let valueTotal = parent.childNodes[7];
@@ -175,12 +160,12 @@ function cancel(event){
   let maturity = parent.childNodes[11];
   let category = parent.childNodes[13];
   let description = parent.childNodes[15];
-  let invoice = parent.childNodes[17];
+  let proofOfPayment = parent.childNodes[17];
   let btnSave = parent.childNodes[19];
   let btnCancel = parent.childNodes[21];
-  incomeHandler.findOneRegisterIncome(idIncome)
+  expenseHandler.findOneRegisterExpense(idIncome)
   .then((result)=>{
-    client.innerHTML = `<div>Cliente: ${result.data.succes.nameClient}</div>`
+    provider.innerHTML = `<div>Fornecedor: ${result.data.succes.nameProvider}</div>`
     amount.innerHTML = `<div>Quantidade: ${result.data.succes.amount}</div>`
     valueUnit.innerHTML = `<div>Valor unitario:R$ ${result.data.succes.valueUnit}</div>`
     valueTotal.innerHTML = `<div> Valor total: ${result.data.succes.valueTotal}`
@@ -188,7 +173,7 @@ function cancel(event){
     maturity.innerHTML = `<div>Vencimento: ${result.data.succes.maturityFormat}`
     category.innerHTML = `<div>Categoria: ${result.data.succes.category}`
     description.innerHTML = `<div>Descrição: ${result.data.succes.description}`
-    invoice.innerHTML = `<div>Visualizar: ${result.data.succes.invoice}`
+    proofOfPayment.innerHTML = `<div>Visualizar: ${result.data.succes.proofOfPayment}`
 
     btnSave.classList.remove('btn-update');
     btnSave.classList.add('btn-delete');
@@ -205,9 +190,9 @@ function cancel(event){
 }
 
 function updateBD(event){
-  let idIncome = event.srcElement.name;
-  let option = event.target.parentElement.querySelector("select[name=clients]").selectedIndex;
-  let client = event.target.parentElement.querySelectorAll('select[name=clients]>option')[option].text;
+  let idExpense = event.srcElement.name;
+  let option = event.target.parentElement.querySelector("select[name=provider]").selectedIndex;
+  let provider = event.target.parentElement.querySelectorAll('select[name=provider]>option')[option].text;
   let amount = event.target.parentElement.querySelector("input[name=amount]").value;
   let valueUnit = event.target.parentElement.querySelector('input[name=valueUnit]').value;
   let valueUnitformat = parseFloat(valueUnit).toLocaleString('pt-BT', {style: 'currency', currency: 'BRL'});
@@ -217,39 +202,57 @@ function updateBD(event){
   let maturityFormat = maturity.split('-').reverse().join('/');
   let description = event.target.parentElement.querySelector("input[name=description]").value;
   let category = event.target.parentElement.querySelector("input[name=category]").value;
-  let invoice = event.target.parentElement.querySelector("input[name=invoice]").value;
-  incomeHandler.updateIncome(idIncome, client, amount, valueUnit, valueTotal, formPGTO, maturity,
-   maturityFormat, description, category, invoice)
+  let proofOfPayment = event.target.parentElement.querySelector("input[name=proofOfPayment]").value;
+  
+  expenseHandler.updateExpense(idExpense, provider, amount, valueUnit, valueTotal, formPGTO, maturity,
+   maturityFormat, description, category, proofOfPayment)
    .then((succes)=>{
       event.target.parentElement.remove();
       addIncomeDom(succes.data);
    })
 }
 
-function updateButtons () {
-  let valueUnit = document.getElementsByClassName('valueUnit');
-  let deletButton = document.getElementsByClassName('btn-delete');
-  let editButton = document.getElementsByClassName('btn-edit');
-  let cancelButton = document.getElementsByClassName('btn-cancel');
-  let updateButton = document.getElementsByClassName('btn-update');
-
-  for(let i = 0; i<valueUnit.length; i+=1){
-    valueUnit[i].onchange = totalPrice;
-  }
-
-  for(let i = 0; i<deletButton.length; i+=1){
-    deletButton[i].onclick = delet;
-  }
-
-  for(let i = 0; i<editButton.length; i+=1){
-    editButton[i].onclick = edit;
-  }
-
-  for(let i = 0; i<cancelButton.length; i+=1){
-    cancelButton[i].onclick = cancel;
-  }
-
-  for(let i = 0; i<updateButton.length; i+=1){
-    updateButton[i].onclick = updateBD;
-  }
+function message(message){
+  let divParent = document.querySelector('.message-container');
+      divParent.innerHTML = '';
+  let divMessage = document.createElement('div');
+      divMessage.innerText = `Status: ${message}`;
+      divParent.appendChild(divMessage);  
 }
+
+function totalPrice(event) {
+  let amount = event.target.parentElement.parentElement.querySelector("input[name=amount]").value;
+  let valueUnit = event.target.value;
+  let valueTotal = event.target.parentElement.parentElement.querySelector("#valueTotal>strong");
+  let acount = parseFloat(amount * valueUnit);
+  let acountFormat = acount.toLocaleString('pt-BT', {style: 'currency', currency: 'BRL'});
+  valueTotal.innerText = acountFormat;
+};
+
+function updateButtons () {
+    let valueUnit = document.getElementsByClassName('valueUnit');
+    let deletButton = document.getElementsByClassName('btn-delete');
+    let editButton = document.getElementsByClassName('btn-edit');
+    let cancelButton = document.getElementsByClassName('btn-cancel');
+    let updateButton = document.getElementsByClassName('btn-update');
+  
+    for(let i = 0; i<valueUnit.length; i+=1){
+      valueUnit[i].onchange = totalPrice;
+    }
+  
+    for(let i = 0; i<deletButton.length; i+=1){
+      deletButton[i].onclick = delet;
+    }
+  
+    for(let i = 0; i<editButton.length; i+=1){
+      editButton[i].onclick = edit;
+    }
+  
+    for(let i = 0; i<cancelButton.length; i+=1){
+      cancelButton[i].onclick = cancel;
+    }
+  
+    for(let i = 0; i<updateButton.length; i+=1){
+      updateButton[i].onclick = updateBD;
+    }
+  }

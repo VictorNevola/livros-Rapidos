@@ -1,6 +1,6 @@
 const {IncomeModel} = require('../models/financialIncome');
 
-const updateBD = (request, response) => {
+const updateIncomeBD = (request, response) => {
     const incomeId = request.body.incomeId;
     const nameClient = request.body.nameClient;
     const amount = request.body.amount;
@@ -33,4 +33,4 @@ const updateBD = (request, response) => {
     });
 }
 
-module.exports = updateBD;
+module.exports = updateIncomeBD;

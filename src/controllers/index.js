@@ -18,11 +18,16 @@ const updatePassword = require('./updatePassword');
 const addIncome = require('./insertIncome');
 const addIncomeBD = require('./addIncomeBD');
 const secret = require('./secret');
-const deletIncomeBD = require('./deleteBD');
-const findOneById = require('./findBD');
-const updateBD = require('./updateBD');
+const deletIncomeBD = require('./deleteIncomeBD');
+const findOneById = require('./findIncomeBD');
+const updateIncomeBD = require('./updateIncome');
 const landingPage = require('./landingPage');
 const clientDetail = require('./clientDetail');
+const addExpenses = require('./insertExpenses');
+const addExpensesBD = require('./addExpenseBD');
+const deletExpenseBD = require('./deleteExpenseBD');
+const findExpenseBD = require('./findExpenseBD');
+const updateExpenseBD = require('./updateExpense');
 
 module.exports = {
     home,
@@ -47,7 +52,12 @@ module.exports = {
     secret,
     deletIncomeBD,
     findOneById,
-    updateBD,
+    updateIncomeBD,
     landingPage,
     clientDetail,
+    addExpenses,
+    addExpensesBD,
+    deletExpenseBD,
+    findExpenseBD,
+    updateExpenseBD
 }

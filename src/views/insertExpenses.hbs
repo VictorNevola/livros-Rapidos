@@ -3,20 +3,19 @@
 </head>
 <body>
     
-<h2>Adicionar Receita:</h2>
-<form id="create-new-income">
-    <label>Cliente:</label>
-    <select name="clients" id="clients">
-    {{#each clients}}
-    <option value={{_id}}>{{name}}</option>
-    {{/each}}
+<h2>Adicionar Despesa:</h2>
+<form id="create-new-expense">
+    <label>Fornecedor:</label>
+    <select name="provider" id="provider">
+        {{#each clients}}
+            <option value={{_id}}>{{name}}</option>
+        {{/each}}
     </select>
-    <a href="/addClients">+</a>
     <label >Quantidade:</label>
-    <input class="amount" type="number" name="amount" value="0" step="any" title="Adicionar quantidade, Não utilizar virgula somente ponto!">
+    <input type="number" name="amount" value="0" step="any" title="Adicionar quantidade, Não utilizar virgula somente ponto!">
     <label >Valor unitario R$:</label>
     <input class="valueUnit" type="number" name="valueUnit" value="0" step="any" title="Adicionar valor unitario, Não utilizar virgula somente ponto!">
-    <label id="valueTotal"> Valor total: <strong> </strong></label>
+    <label id="valueTotal"> Valor total: <strong></strong></label>
     <label>Forma de Pagamento:</label>
     <input type="text" name="formPGTO">
     <label>Vencimento:</label>
@@ -25,25 +24,25 @@
     <input type="text" name="description">
     <label>Categoria:</label>
     <input type="text" name="category">
-    <label>Nota fiscal:</label>
-    <input type="file" name="invoice">
+    <label>Comprovante/NF:</label>
+    <input type="file" name="payment">
     <button type="submit">Adicionar</button>
 </form>
 <div class="message-container"></div>
-<section id="income-List">
-{{#if financialIncomes}}
+<section id="expense-List">
+{{#if financialExpenses}}
     <h3> Lista de entradas </h3>
-    {{#each financialIncomes}}
-    <div id="income">
-        <div>Cliente: {{nameClient}}</div>
+    {{#each financialExpenses}}
+    <div id="expense">
+        <div value="{{idProvider}}">Fornecedor: {{nameProvider}}</div>
         <div>Quantidade: {{amount}}</div>
-        <div>Valor unitario R$: {{valueUnit}}</div>
+        <div>Valor unitario: {{valueUnit}}</div>
         <div>Valor Total: {{valueTotal}}</div>
         <div>Forma de Pagamento: {{formPGTO}}</div>
         <div>Vencimento: {{maturityFormat}}</div>
         <div>Categoria: {{category}}</div>
         <div>Descrição: {{description}}</div>
-        <div>Visualizar: {{invoice}}</div>
+        <div>Visualizar: {{proofOfPayment}}</div>
         <button class="btn-delete" name="{{_id}}" type="button">Excluir</button>
         <button class="btn-edit" name="{{_id}}" type="button">Editar</button>
         <HR></HR>
@@ -56,7 +55,7 @@
 
 </section>
 
-<script type="text/javascript" src="../javascript/financialIncome.js"></script>
-<script type="text/javascript" src="../javascript/financialIncomeHandler.js"></script>
+<script type="text/javascript" src="../javascript/financialExpenses.js"></script>
+<script type="text/javascript" src="../javascript/financialExpenseHandler.js"></script>
 
 </body>
