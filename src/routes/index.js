@@ -6,7 +6,8 @@ const {home, register, createUser, confirmUser, login,
     deleteClients,updateClients,
     sendChangePassword, changePasswordLink, updatePassword, addIncome,
     addClients, save, addIncomeBD, secret, deletIncomeBD,
-    findOneById, updateBD, landingPage, clientDetail} = require('../controllers/index');
+    findOneById, updateIncomeBD, landingPage, clientDetail, addExpenses,
+    addExpensesBD, deletExpenseBD, findExpenseBD, updateExpenseBD} = require('../controllers/index');
 
 
 
@@ -31,9 +32,14 @@ router.post('/addIncomeBD', addIncomeBD);
 router.delete('/deletIncomeBD/:id', deletIncomeBD);
 router.get('/findIncome/:id', findOneById);
 router.get('/secret', secret);
-router.patch('/updateIncome', updateBD);
+router.patch('/updateIncome', updateIncomeBD);
 router.get('/landingPage', landingPage);
 router.get('/detail/:id', clientDetail);
+router.get('/addExpenses', addExpenses);
+router.post('/addExpenseBD', addExpensesBD);
+router.delete('/deletexpenseBD/:id', deletExpenseBD);
+router.get('/findexpense/:id', findExpenseBD);
+router.patch('/updateExpense', updateExpenseBD);
 
 
 module.exports = {

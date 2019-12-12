@@ -18,7 +18,7 @@ class IncomeHandler {
         description: description,
         category: category,
         invoice: invoice,
-      }
+      };
       return axios.post(`${this.BASE_URL}/addIncomeBD`, newIncome);
     }
 
