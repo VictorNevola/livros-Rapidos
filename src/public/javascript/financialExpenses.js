@@ -29,10 +29,11 @@ class ExpenseHandler {
       return axios.get(`${this.BASE_URL}/findexpense/${id}`);
     }
 
-    updateExpense(idExpense, provider, amount, valueUnit, valueTotal, formPGTO, maturity,
+    updateExpense(idExpense, idProvider, provider, amount, valueUnit, valueTotal, formPGTO, maturity,
       maturityFormat, description, category, proofOfPayment){
       const updateExpense = {
         idExpense: idExpense,
+        idProvider: idProvider,
         nameProvider: provider,
         amount: amount,
         valueUnit: valueUnit,

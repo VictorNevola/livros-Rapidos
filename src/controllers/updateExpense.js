@@ -2,6 +2,7 @@ const {ExpensesModel} = require('../models/financialExpenses');
 
 const updateExpenseBD = (request, response) => {
     const idExpense = request.body.idExpense;
+    const idProvider = request.body.idProvider;
     const nameProvider = request.body.nameProvider;
     const amount = request.body.amount;
     const valueUnit = request.body.valueUnit;
@@ -14,6 +15,7 @@ const updateExpenseBD = (request, response) => {
 
     ExpensesModel.findByIdAndUpdate(idExpense,{
         nameProvider: nameProvider,
+        idProvider: idProvider,
         amount: amount,
         valueUnit: valueUnit,
         valueTotal: valueTotal,
