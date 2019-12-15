@@ -4,7 +4,7 @@ class ExpenseHandler {
       this.BASE_URL = baseUrl;
     }
 
-    createExpenses(idUser, idProvider, provider, amount, valueUnit, valueTotal, formPGTO, maturity, maturityFormat, description, category, proofOfPayment) {
+    createExpenses(idUser, idProvider, provider, amount, valueUnit, valueTotal, formPGTO, maturity, maturityFormat, description, category) {
       const newExpense = {
         idUser: idUser,
         idProvider: idProvider,
@@ -17,7 +17,6 @@ class ExpenseHandler {
         maturityFormat: maturityFormat,
         description: description,
         category: category,
-        proofOfPayment: proofOfPayment,
       };
       return axios.post(`${this.BASE_URL}/addExpenseBD`, newExpense);
     }

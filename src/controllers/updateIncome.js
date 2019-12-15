@@ -11,7 +11,6 @@ const updateIncomeBD = (request, response) => {
     const maturityFormat = request.body.maturityFormat;
     const description = request.body.description;
     const category = request.body.category;
-    const invoice = request.body.invoice;
 
     IncomeModel.findByIdAndUpdate(incomeId,{
         nameClient: nameClient,
@@ -23,7 +22,6 @@ const updateIncomeBD = (request, response) => {
         maturityFormat: maturityFormat,
         description: description,
         category: category,
-        invoice: invoice,
     },{'new': true})
     .then((succes)=>{
         response.status(200).json(succes);
