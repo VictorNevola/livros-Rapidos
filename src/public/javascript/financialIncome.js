@@ -29,10 +29,11 @@ class IncomeHandler {
       return axios.get(`${this.BASE_URL}/findIncome/${id}`);
     }
 
-    updateIncome(idIncome, client, amount, valueUnit, valueTotal, formPGTO, maturity,
+    updateIncome(idIncome,idClient, client, amount, valueUnit, valueTotal, formPGTO, maturity,
       maturityFormat, description, category, invoice){
       const updateIncome = {
         incomeId: idIncome,
+        idClient: idClient,
         nameClient: client,
         amount: amount,
         valueUnit: valueUnit,

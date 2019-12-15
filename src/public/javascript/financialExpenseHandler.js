@@ -19,7 +19,7 @@ document.getElementById('create-new-expense').addEventListener('submit', (event)
   let maturityFormat = maturity.split('-').reverse().join('/');
   let description = document.querySelector("input[name=description]").value;
   let category = document.querySelector("input[name=category]").value;
-  
+
   if(option === "" || nameProvider === "" || amount === "" || valueUnit === "" || valueTotal === "" || formPGTO === "" || maturity === ""
   || description === "" || category === ""){
     message("Campos não podem estar vazios, verificar!");
@@ -99,7 +99,7 @@ function edit(event){
     let select = provider.querySelector('select[name=provider]');
 
     clients.forEach(element => {
-      let option = document.createElement('option');
+        let option = document.createElement('option');
           option.value = element._id;
           option.innerText = element.name;
           if(element._id === optionSelect){
@@ -185,6 +185,7 @@ function cancel(event){
 function updateBD(event){
   let idExpense = event.srcElement.name;
   let option = event.target.parentElement.querySelector("select[name=provider]").selectedIndex;
+  let idProvider = document.querySelectorAll('select[name=provider]>option')[option].value;
   let provider = event.target.parentElement.querySelectorAll('select[name=provider]>option')[option].text;
   let amount = event.target.parentElement.querySelector("input[name=amount]").value;
   let valueUnit = event.target.parentElement.querySelector('input[name=valueUnit]').value;
@@ -196,7 +197,7 @@ function updateBD(event){
   let description = event.target.parentElement.querySelector("input[name=description]").value;
   let category = event.target.parentElement.querySelector("input[name=category]").value;
   
-  expenseHandler.updateExpense(idExpense, provider, amount, valueUnit, valueTotal, formPGTO, maturity,
+  expenseHandler.updateExpense(idExpense, idProvider, provider, amount, valueUnit, valueTotal, formPGTO, maturity,
    maturityFormat, description, category)
    .then((succes)=>{
       event.target.parentElement.remove();

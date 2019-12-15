@@ -204,6 +204,7 @@ function cancel(event){
 function updateBD(event){
   let idIncome = event.srcElement.name;
   let option = event.target.parentElement.querySelector("select[name=clients]").selectedIndex;
+  let idClient = document.querySelectorAll('select[name=clients]>option')[option].value;
   let client = event.target.parentElement.querySelectorAll('select[name=clients]>option')[option].text;
   let amount = event.target.parentElement.querySelector("input[name=amount]").value;
   let valueUnit = event.target.parentElement.querySelector('input[name=valueUnit]').value;
@@ -214,7 +215,7 @@ function updateBD(event){
   let maturityFormat = maturity.split('-').reverse().join('/');
   let description = event.target.parentElement.querySelector("input[name=description]").value;
   let category = event.target.parentElement.querySelector("input[name=category]").value;
-  incomeHandler.updateIncome(idIncome, client, amount, valueUnit, valueTotal, formPGTO, maturity,
+  incomeHandler.updateIncome(idIncome, idClient, client, amount, valueUnit, valueTotal, formPGTO, maturity,
    maturityFormat, description, category)
    .then((succes)=>{
       event.target.parentElement.remove();

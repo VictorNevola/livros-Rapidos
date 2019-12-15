@@ -2,6 +2,7 @@ const {IncomeModel} = require('../models/financialIncome');
 
 const updateIncomeBD = (request, response) => {
     const incomeId = request.body.incomeId;
+    const idClient = request.body.idClient;
     const nameClient = request.body.nameClient;
     const amount = request.body.amount;
     const valueUnit = request.body.valueUnit;
@@ -13,6 +14,7 @@ const updateIncomeBD = (request, response) => {
     const category = request.body.category;
 
     IncomeModel.findByIdAndUpdate(incomeId,{
+        idCliente: idClient,
         nameClient: nameClient,
         amount: amount,
         valueUnit: valueUnit,
