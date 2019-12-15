@@ -12,7 +12,6 @@ const addExpenseBD = (request, response) => {
     let maturityFormat = request.body.maturityFormat;
     let description = request.body.description;
     let category = request.body.category;
-    let proofOfPayment = request.body.proofOfPayment;
     
     ExpensesModel.create({
         idUser: idUser,
@@ -26,7 +25,6 @@ const addExpenseBD = (request, response) => {
         maturityFormat: maturityFormat,
         description: description,
         category: category,
-        proofOfPayment: proofOfPayment,
     })
     .then((expense)=>{
         response.status(200).json(expense);

@@ -19,15 +19,14 @@ document.getElementById('create-new-income').addEventListener('submit', function
   let maturityFormat = maturity.split('-').reverse().join('/');
   let description = document.querySelector("input[name=description]").value;
   let category = document.querySelector("input[name=category]").value;
-  let invoice = document.querySelector("input[name=invoice]").value;
 
   if(option === "" || client === "" || amount === "" || valueUnit === "" || valueTotal === "" || formPGTO === "" || maturity === ""
-  || description === "" || category === "" || invoice == ""){
+  || description === "" || category === ""){
     message("Campos não podem estar vazios, verificar!");
     return;
   };
 
-  incomeHandler.createIncome(idUser, idCliente, client, amount, valueUnit, valueTotal, formPGTO, maturity, maturityFormat, description, category, invoice)
+  incomeHandler.createIncome(idUser, idCliente, client, amount, valueUnit, valueTotal, formPGTO, maturity, maturityFormat, description, category)
   .then((income)=>{
     addIncomeDom(income.data);
     document.getElementById('create-new-income').reset();
@@ -69,7 +68,7 @@ function addIncomeDom(result){
   let divIncome = document.createElement('div')
       divIncome.id = 'income';
       divIncome.innerHTML = `
-      <div>Cliente: ${result.nameClient}</div>
+      <div value="${result.idCliente}">Cliente: ${result.nameClient}</div>
       <div>Quantidade: ${result.amount}</div>
       <div>Valor Unitario: ${result.valueUnit}</div>
       <div>Valor Total: ${result.valueTotal}</div>
@@ -77,7 +76,6 @@ function addIncomeDom(result){
       <div>Vencimento: ${result.maturityFormat}</div>
       <div>Categoria: ${result.category}</div>
       <div>Descrição: ${result.description}</div>
-      <div>Visualizar: ${result.invoice}</div>
       <button class="btn-delete" name="${result._id}">Excluir</button>
       <button class="btn-edit" name="${result._id}">Editar</button>
       <hr></hr>`
@@ -98,6 +96,7 @@ function delet(event){
 }
 
 function edit(event){
+  let optionSelect = event.target.parentElement.childNodes[1].getAttribute('value');
   let idIncome = event.srcElement.name;
   let parent = event.target.parentElement;
   let client = parent.childNodes[1];
@@ -111,9 +110,8 @@ function edit(event){
   let maturity = parent.childNodes[11];
   let category = parent.childNodes[13];
   let description = parent.childNodes[15];
-  let invoice = parent.childNodes[17];
-  let btnDelet = parent.childNodes[19];
-  let btnEdit = parent.childNodes[21];
+  let btnDelet = parent.childNodes[17];
+  let btnEdit = parent.childNodes[19];
 
   incomeHandler.findOneRegisterIncome(idIncome)
   .then((result)=>{
@@ -124,6 +122,9 @@ function edit(event){
       let option = document.createElement('option');
           option.value = element._id;
           option.innerText = element.name;
+          if(element._id === optionSelect){
+            option.selected = true
+          }
           select.appendChild(option);
     });
 
@@ -146,9 +147,6 @@ function edit(event){
     `
     description.innerHTML = `<label>Descrição:</label>
     <input type="text" name="description" value="${result.data.succes.description}">
-    `
-    invoice.innerHTML = `<label>Nota fiscal:</label>
-    <input type="file" name="invoice" value="${result.data.succes.invoice}">
     `
     btnDelet.classList.remove('btn-delete');
     btnDelet.classList.add('btn-update');
@@ -175,9 +173,9 @@ function cancel(event){
   let maturity = parent.childNodes[11];
   let category = parent.childNodes[13];
   let description = parent.childNodes[15];
-  let invoice = parent.childNodes[17];
-  let btnSave = parent.childNodes[19];
-  let btnCancel = parent.childNodes[21];
+  let btnSave = parent.childNodes[17];
+  let btnCancel = parent.childNodes[19];
+  
   incomeHandler.findOneRegisterIncome(idIncome)
   .then((result)=>{
     client.innerHTML = `<div>Cliente: ${result.data.succes.nameClient}</div>`
@@ -188,7 +186,6 @@ function cancel(event){
     maturity.innerHTML = `<div>Vencimento: ${result.data.succes.maturityFormat}`
     category.innerHTML = `<div>Categoria: ${result.data.succes.category}`
     description.innerHTML = `<div>Descrição: ${result.data.succes.description}`
-    invoice.innerHTML = `<div>Visualizar: ${result.data.succes.invoice}`
 
     btnSave.classList.remove('btn-update');
     btnSave.classList.add('btn-delete');
@@ -217,9 +214,8 @@ function updateBD(event){
   let maturityFormat = maturity.split('-').reverse().join('/');
   let description = event.target.parentElement.querySelector("input[name=description]").value;
   let category = event.target.parentElement.querySelector("input[name=category]").value;
-  let invoice = event.target.parentElement.querySelector("input[name=invoice]").value;
   incomeHandler.updateIncome(idIncome, client, amount, valueUnit, valueTotal, formPGTO, maturity,
-   maturityFormat, description, category, invoice)
+   maturityFormat, description, category)
    .then((succes)=>{
       event.target.parentElement.remove();
       addIncomeDom(succes.data);

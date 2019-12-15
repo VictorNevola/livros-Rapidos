@@ -16,7 +16,7 @@
     <input class="amount" type="number" name="amount" value="0" step="any" title="Adicionar quantidade, Não utilizar virgula somente ponto!">
     <label >Valor unitario R$:</label>
     <input class="valueUnit" type="number" name="valueUnit" value="0" step="any" title="Adicionar valor unitario, Não utilizar virgula somente ponto!">
-    <label id="valueTotal"> Valor total: <strong> </strong></label>
+    <label id="valueTotal"> Valor total:<strong>R$ 0,00 </strong></label>
     <label>Forma de Pagamento:</label>
     <input type="text" name="formPGTO">
     <label>Vencimento:</label>
@@ -25,8 +25,6 @@
     <input type="text" name="description">
     <label>Categoria:</label>
     <input type="text" name="category">
-    <label>Nota fiscal:</label>
-    <input type="file" name="invoice">
     <button type="submit">Adicionar</button>
 </form>
 <div class="message-container"></div>
@@ -35,7 +33,7 @@
     <h3> Lista de entradas </h3>
     {{#each financialIncomes}}
     <div id="income">
-        <div>Cliente: {{nameClient}}</div>
+        <div value="{{idCliente}}">Cliente: {{nameClient}}</div>
         <div>Quantidade: {{amount}}</div>
         <div>Valor unitario R$: {{valueUnit}}</div>
         <div>Valor Total: {{valueTotal}}</div>
@@ -43,7 +41,6 @@
         <div>Vencimento: {{maturityFormat}}</div>
         <div>Categoria: {{category}}</div>
         <div>Descrição: {{description}}</div>
-        <div>Visualizar: {{invoice}}</div>
         <button class="btn-delete" name="{{_id}}" type="button">Excluir</button>
         <button class="btn-edit" name="{{_id}}" type="button">Editar</button>
         <HR></HR>

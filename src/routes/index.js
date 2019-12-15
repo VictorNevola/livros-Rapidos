@@ -9,8 +9,6 @@ const {home, register, createUser, confirmUser, login,
     findOneById, updateIncomeBD, landingPage, clientDetail, addExpenses,
     addExpensesBD, deletExpenseBD, findExpenseBD, updateExpenseBD} = require('../controllers/index');
 
-
-
 router.get('/', home);
 router.get('/register', register);
 router.post('/', createUser);
@@ -39,7 +37,7 @@ router.get('/addExpenses', addExpenses);
 router.post('/addExpenseBD', addExpensesBD);
 router.delete('/deletexpenseBD/:id', deletExpenseBD);
 router.get('/findexpense/:id', findExpenseBD);
-router.patch('/updateExpense', updateExpenseBD);
+router.patch('/updateExpense',updateExpenseBD);
 
 
 module.exports = {

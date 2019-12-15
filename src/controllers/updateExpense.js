@@ -11,7 +11,6 @@ const updateExpenseBD = (request, response) => {
     const maturityFormat = request.body.maturityFormat;
     const description = request.body.description;
     const category = request.body.category;
-    const proofOfPayment = request.body.proofOfPayment;
 
     ExpensesModel.findByIdAndUpdate(idExpense,{
         nameProvider: nameProvider,
@@ -23,7 +22,6 @@ const updateExpenseBD = (request, response) => {
         maturityFormat: maturityFormat,
         description: description,
         category: category,
-        proofOfPayment: proofOfPayment,
     }, {'new': true})
     .then((succes)=>{
         response.status(200).json(succes);

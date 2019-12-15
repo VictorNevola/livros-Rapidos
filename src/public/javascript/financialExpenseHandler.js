@@ -19,15 +19,14 @@ document.getElementById('create-new-expense').addEventListener('submit', (event)
   let maturityFormat = maturity.split('-').reverse().join('/');
   let description = document.querySelector("input[name=description]").value;
   let category = document.querySelector("input[name=category]").value;
-  let proofOfPayment = document.querySelector("input[name=payment]").value;
   
   if(option === "" || nameProvider === "" || amount === "" || valueUnit === "" || valueTotal === "" || formPGTO === "" || maturity === ""
-  || description === "" || category === "" || proofOfPayment == ""){
+  || description === "" || category === ""){
     message("Campos não podem estar vazios, verificar!");
     return;
   };
-  expenseHandler.createExpenses(idUser, idProvider, nameProvider, amount, valueUnit, valueTotal, formPGTO,
-    maturity, maturityFormat, description, category, proofOfPayment)
+
+  expenseHandler.createExpenses(idUser, idProvider, nameProvider, amount, valueUnit, valueTotal, formPGTO, maturity, maturityFormat, description, category)
   .then((expense)=>{
     addIncomeDom(expense.data)
     document.getElementById('create-new-expense').reset();
@@ -51,7 +50,7 @@ function addIncomeDom(result){
   let divIncome = document.createElement('div')
       divIncome.id = 'income';
       divIncome.innerHTML = `
-      <div value="${result._id}">Fornecedor: ${result.nameProvider}</div>
+      <div value="${result.idProvider}">Fornecedor: ${result.nameProvider}</div>
       <div>Quantidade: ${result.amount}</div>
       <div>Valor Unitario: ${result.valueUnit}</div>
       <div>Valor Total: ${result.valueTotal}</div>
@@ -59,7 +58,6 @@ function addIncomeDom(result){
       <div>Vencimento: ${result.maturityFormat}</div>
       <div>Categoria: ${result.category}</div>
       <div>Descrição: ${result.description}</div>
-      <div>Visualizar: ${result.proofOfPayment}</div>
       <button class="btn-delete" name="${result._id}">Excluir</button>
       <button class="btn-edit" name="${result._id}">Editar</button>
       <hr></hr>`
@@ -92,9 +90,8 @@ function edit(event){
   let maturity = parent.childNodes[11];
   let category = parent.childNodes[13];
   let description = parent.childNodes[15];
-  let proofOfPayment = parent.childNodes[17];
-  let btnDelet = parent.childNodes[19];
-  let btnEdit = parent.childNodes[21];
+  let btnDelet = parent.childNodes[17];
+  let btnEdit = parent.childNodes[19];
 
   expenseHandler.findOneRegisterExpense(event.srcElement.name)
   .then((result)=>{
@@ -131,9 +128,7 @@ function edit(event){
     description.innerHTML = `<label>Descrição:</label>
     <input type="text" name="description" value="${result.data.succes.description}">
     `
-    proofOfPayment.innerHTML = `<label>Comprovante/NF:</label>
-    <input type="file" name="proofOfPayment" value="${result.data.succes.invoice}">
-    `
+
     btnDelet.classList.remove('btn-delete');
     btnDelet.classList.add('btn-update');
     btnDelet.name = result.data.succes._id;
@@ -160,9 +155,8 @@ function cancel(event){
   let maturity = parent.childNodes[11];
   let category = parent.childNodes[13];
   let description = parent.childNodes[15];
-  let proofOfPayment = parent.childNodes[17];
-  let btnSave = parent.childNodes[19];
-  let btnCancel = parent.childNodes[21];
+  let btnSave = parent.childNodes[17];
+  let btnCancel = parent.childNodes[19];
   expenseHandler.findOneRegisterExpense(idIncome)
   .then((result)=>{
     provider.innerHTML = `<div>Fornecedor: ${result.data.succes.nameProvider}</div>`
@@ -173,7 +167,6 @@ function cancel(event){
     maturity.innerHTML = `<div>Vencimento: ${result.data.succes.maturityFormat}`
     category.innerHTML = `<div>Categoria: ${result.data.succes.category}`
     description.innerHTML = `<div>Descrição: ${result.data.succes.description}`
-    proofOfPayment.innerHTML = `<div>Visualizar: ${result.data.succes.proofOfPayment}`
 
     btnSave.classList.remove('btn-update');
     btnSave.classList.add('btn-delete');
@@ -202,10 +195,9 @@ function updateBD(event){
   let maturityFormat = maturity.split('-').reverse().join('/');
   let description = event.target.parentElement.querySelector("input[name=description]").value;
   let category = event.target.parentElement.querySelector("input[name=category]").value;
-  let proofOfPayment = event.target.parentElement.querySelector("input[name=proofOfPayment]").value;
   
   expenseHandler.updateExpense(idExpense, provider, amount, valueUnit, valueTotal, formPGTO, maturity,
-   maturityFormat, description, category, proofOfPayment)
+   maturityFormat, description, category)
    .then((succes)=>{
       event.target.parentElement.remove();
       addIncomeDom(succes.data);
