@@ -3,7 +3,6 @@ const sum = require('../resources/sumValues');
 
 const clientDetails = (request, response) => {
   let clientId = request.params.id
-  console.log(clientId);
   IncomeModel.find({'idCliente': clientId})
   .then((resp) =>{
     const total = sum(resp);

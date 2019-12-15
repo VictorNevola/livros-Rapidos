@@ -11,7 +11,8 @@ const save = (request , response) => {
     idUser: userID,
     name: name,
     email: email,
-    tellphone: tellphone
+    tellphone: tellphone,
+    date: new Date().toString()
   })
   .then(client => {
     console.log(client) ;

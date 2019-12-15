@@ -23,6 +23,8 @@ const findOneById = require('./findBD');
 const updateBD = require('./updateBD');
 const landingPage = require('./landingPage');
 const clientDetail = require('./clientDetail');
+const {findChart, clientChart, incomeChart, incomeClient} = require('./findCharts');
+// const {clientChart} = require('./findCharts');
 
 module.exports = {
     home,
@@ -50,4 +52,8 @@ module.exports = {
     updateBD,
     landingPage,
     clientDetail,
+    findChart,
+    clientChart,
+    incomeChart,
+    incomeClient
 }

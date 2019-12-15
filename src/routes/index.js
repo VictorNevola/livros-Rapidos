@@ -6,7 +6,7 @@ const {home, register, createUser, confirmUser, login,
     deleteClients,updateClients,
     sendChangePassword, changePasswordLink, updatePassword, addIncome,
     addClients, save, addIncomeBD, secret, deletIncomeBD,
-    findOneById, updateBD, landingPage, clientDetail} = require('../controllers/index');
+    findOneById, updateBD, landingPage, clientDetail, findChart, clientChart, incomeChart, incomeClient} = require('../controllers/index');
 
 
 
@@ -34,6 +34,10 @@ router.get('/secret', secret);
 router.patch('/updateIncome', updateBD);
 router.get('/landingPage', landingPage);
 router.get('/detail/:id', clientDetail);
+router.get('/chart', findChart);
+router.get('/chart2', clientChart);
+router.get('/chart3', incomeChart);
+router.get('/chart4', incomeClient);
 
 
 module.exports = {

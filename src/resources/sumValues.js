@@ -11,7 +11,11 @@ function sumValues(values) {
   return sumed;
 }
 
+
 module.exports = sumValues;
+
+// db.financialincomes.aggregate([{$project: { _id: "$maturity", "total": {"$multiply": ["$amount", "$valueUnit"] } }}])
+
 
 // let values = [
 //   {

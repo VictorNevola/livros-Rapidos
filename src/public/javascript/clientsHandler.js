@@ -11,13 +11,13 @@ form.addEventListener('submit', function (event) {
   let email = document.getElementById('clientEmail').value;
   let tellphone = document.getElementById('clientTellphone').value;
 
-  if (validateEmail(email) === true && phonenumber(tellphone)) {
+  // if (validateEmail(email) === true && phonenumber(tellphone) === true) {
     clientHandler.createCLient(name, email, tellphone);
     form.reset();
-  }
-  else {
-    console.log('errado');
-  }
+  // }
+  // else {
+  //   console.log('errado');
+  // }
 })
 
 function mascaraDeTelefone(telefone) {

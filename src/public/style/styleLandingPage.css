@@ -165,7 +165,7 @@
   list-style-type: none;
   width: 180px;
   position: absolute;
-  height: 92vh;
+  height: 150vh;
   top: 8vh;
   background-color: #253e4a;
   display: flex;
@@ -179,7 +179,7 @@
   list-style-type: none;
   width: 50px;  
   position: absolute;
-  height: 92vh;
+  height: 100vh;
   top: 8vh;
   background-color: #253e4a;
   display: flex;
@@ -209,6 +209,31 @@
 
 .late {
   color: red;
+}
+
+.graficos {
+  margin-left: 80px;
+  display: flex;
+}
+
+.chart {
+  width: 588px; 
+  height:  306px;
+}
+
+.canvas {
+  width: 588px;
+  height: 306px; 
+  display: block;
+}
+
+.chart2 {
+  margin-left: 20px;
+}
+
+.pie {
+  width: 250px; 
+  height:  100px;
 }
 
 .space > a {
