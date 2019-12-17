@@ -13,52 +13,58 @@
 
 <body>
   <nav class="dash-nav">
-    <div>Logo Aqui</div>
-    {{!-- <ul class="ul-horizontal">
-      <li>Home</li>
-      <li>Despesas</li>
-      <li>Receitas</li>
-    </ul> --}}
-
-    <div>
-      <a href="" class="log-out">Log Out</a>
+    <div class="burguer">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
     </div>
-
-  </nav>
-
-  <nav class="nav-side">
-    <ul>
-      <li>
-        <a onclick="openMenu(this)">
-          <img id="expand" class="icon-img" src="../images/expand.svg" alt="">
-        </a>
-        <a class="side-menu-item" href="">Menu</a>
+    <div>Logo Aqui</div>
+    <ul class="ul-horizontal">
+      <li class="space">
+        <a href="/landingPage">Dahsboard</a>
       </li>
+      <li class="space">
+        <a href="/addClients">Clientes</a>
+      </li>
+      <li class="space">
+        <a href="/addIncome">Receita</a>
+      </li>
+      <li class="space">
+        <a href="/addClients">Teste</a>
+      </li>
+    </ul>
+
+    <ul class="ul-horizontal2">
       <li>
         <a href="/landingPage">
           <img class="icon-img" src="../images/icon2.svg" alt="">
         </a>
-        <a class="side-menu-item" href="/landingPage">Dahsboard</a>
+        {{!-- <a class="side-menu-item" href="/landingPage">Dahsboard</a> --}}
       </li>
       <li>
         <a href="/addCLients">
           <img class="icon-img" src="../images/cliente.svg" alt="">
         </a>
-        <a class="side-menu-item" href="/addClients">Clientes</a>
+        {{!-- <a class="side-menu-item" href="/landingPage">Clientes</a> --}}
       </li>
       <li>
-        <a href="">
+        <a href="/addIncome">
           <img class="icon-img" src="../images/icon1.svg" alt="">
         </a>
-        <a class="side-menu-item" href="">Receita</a>
+        {{!-- <a class="side-menu-item" href="">Receita</a> --}}
       </li>
       <li>
         <a href="">
           <img class="icon-img" src="../images/icon3.svg" alt="">
         </a>
-        <a class="side-menu-item" href="">Renda</a>
+        {{!-- <a class="side-menu-item" href="">Renda</a> --}}
       </li>
     </ul>
+
+    <div>
+      <a href="" class="log-out">Log Out</a>
+    </div>
+
   </nav>
 
   <div class="Tittle">
@@ -97,12 +103,12 @@
           {{!-- <a onclick="myClick(this, 'update')">
             <img src="../images/icon3.svg" style="width: 30px;">
           </a> --}}
-          <input type="button" id="save_button1" value="Save" class="hide" style="margin-right:10px"
+          <input type="button" id="save_button1" value="Save" class="hide button" style="margin-right:10px"
             onclick="save(this,'save')">
-          <input type="button" id="cancel_button1" value="Cancel" class="hide" style="margin-right:10px"
+          <input type="button" id="cancel_button1" value="Cancel" class="hide button" style="margin-right:10px"
             onclick="save(this,'cancel')">
           <input class="button" type="button" value="Deletar" onclick="myClick(this,'deletar')">
-          <a id="details" value={{_id}} href="/detail/{{_id}}">Detalhes</a>
+          <a id="details" class="button details" value={{_id}} href="/detail/{{_id}}">Detalhes</a>
         </td>
       </tr>
       {{/each}}
@@ -113,6 +119,8 @@
 
   <script type="text/javascript" src="../javascript/clients.js"></script>
   <script type="text/javascript" src="../javascript/clientsHandler.js"></script>
+  <script type="text/javascript" src="../javascript/details.js"></script>
+
 </body>
 
 </html>

@@ -5,21 +5,6 @@ window.addEventListener('load', () => {
 
 let form = document.getElementById('create-new-client');
 
-form.addEventListener('submit', function (event) {
-  event.preventDefault();
-  let name = document.getElementById('clientName').value;
-  let email = document.getElementById('clientEmail').value;
-  let tellphone = document.getElementById('clientTellphone').value;
-
-  // if (validateEmail(email) === true && phonenumber(tellphone) === true) {
-    clientHandler.createCLient(name, email, tellphone);
-    form.reset();
-  // }
-  // else {
-  //   console.log('errado');
-  // }
-})
-
 function mascaraDeTelefone(telefone) {
   console.log(telefone.value.length);
   if (telefone.value.length === 10 || telefone.value.length === 11) {
@@ -49,6 +34,20 @@ function tiraHifen(telefone) {
   }
 }
 
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+  let name = document.getElementById('clientName').value;
+  let email = document.getElementById('clientEmail').value;
+  let tellphone = document.getElementById('clientTellphone').value;
+
+  if (validateEmail(email) === true && phonenumber(tellphone) === true) {
+    clientHandler.createCLient(name, email, tellphone);
+    form.reset();
+  }
+  else {
+    console.log('errado');
+  }
+})
 
 
 let emailPesquise = '';
@@ -56,18 +55,17 @@ let emailPesquise = '';
 function myClick(element, operation) {
   let parent = element.parentNode;
   //Div com os dados do cliente
+  console.log(parent);
+  console.log(parent.childNodes);
   let beforedelete = parent.parentNode;
   //Div que contem tudo do cliente
   let toDelete = beforedelete.parentNode;
-  // console.log(parent.getElementsByTagName('div'));
   let name_div = beforedelete.childNodes[1];
   let name = beforedelete.childNodes[1].innerText;
   let email_div = beforedelete.childNodes[3];
   let email = beforedelete.childNodes[3].innerText;
   let telefone_div = beforedelete.childNodes[5];
   let telefone = beforedelete.childNodes[5].innerText;
-  console.log(beforedelete);
-  console.log(operation);
   if (operation === "deletar" && parent.className === "buttons") {
     clientHandler.deleteClient(name, email, telefone);
     beforedelete.remove();
@@ -80,11 +78,13 @@ function myClick(element, operation) {
     let edit = parent.childNodes[1];
     let salvar = parent.childNodes[3];
     let cancel = parent.childNodes[5];
-    salvar.classList.toggle("button");
-    cancel.classList.toggle("button");
+    let details = parent.childNodes[9];
+    // salvar.classList.toggle("button");
+    // cancel.classList.toggle("button");
     salvar.classList.toggle("hide");
     cancel.classList.toggle("hide");
     edit.classList.toggle("hide");
+    details.classList.toggle("hide");
   }
 }
 
@@ -105,15 +105,12 @@ function save(element, order) {
   let edit = parent.childNodes[1];
   let save = parent.childNodes[3];
   let cancel = parent.childNodes[5];
+  let details = parent.childNodes[9];
 
-  console.log(edit);
-  console.log(save);
   if (edit.classList.value === 'hide') {
     edit.classList.toggle("hide");
     save.classList.toggle("hide");
   }
-  // let name_dive = `<a class="clientName">${name}</a>`;
-  // name_div.insertAdjacentHTML("beforeend" , name_dive);
   if (order === 'save') {
     clientHandler.updateCLient(emailPesquise, name, email, telefone);
   }
@@ -125,6 +122,7 @@ function save(element, order) {
   save.classList.toggle("hide");
   edit.classList.toggle("hide");
   cancel.classList.toggle("hide");
+  details.classList.toggle("hide");
 
 }
 
@@ -132,9 +130,6 @@ function openMenu(menu) {
   let parent = menu.parentNode;
   let filho = parent.parentNode;
   let pai = filho.parentNode;
-  // let img = document.getElementById('expand').src;
-  // document.getElementById('expand').src = '../images/icon3.svg';
-  // console.log(img);
   pai.classList.toggle('open');
 }
 
@@ -158,11 +153,12 @@ function phonenumber(inputtxt) {
   let regex = /(\(?\d{2}\)?\s)?(\d{4,5})?-?(\d{4})/gm;
   let tellphone = document.getElementById('clientTellphone').value;
   if (regex.test(tellphone) === true) {
-    console.log('telefone certo');
+    console.log('vai','telefone certo');
+    return true;
   }
   else {
-    document.getElementById('telefone-errado').classList.toggle('hide');
-
+    // document.getElementById('telefone-errado').classList.toggle('hide');
+    console.log('telefone errado pra krl')
   }
 }
 
