@@ -29,6 +29,7 @@ const addExpensesBD = require('./addExpenseBD');
 const deletExpenseBD = require('./deleteExpenseBD');
 const findExpenseBD = require('./findExpenseBD');
 const updateExpenseBD = require('./updateExpense');
+const logout = require('./logout');
 
 module.exports = {
     home,
@@ -65,4 +66,5 @@ module.exports = {
     deletExpenseBD,
     findExpenseBD,
     updateExpenseBD,
+    logout,
 }
