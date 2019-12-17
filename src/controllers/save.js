@@ -15,7 +15,6 @@ const save = (request , response) => {
     date: new Date().toString()
   })
   .then(client => {
-    console.log(client) ;
     response.status(200).json(client)
   })
   .catch(error => {

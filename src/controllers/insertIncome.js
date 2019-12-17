@@ -10,7 +10,6 @@ const addIncome = async (request, response) => {
     }else {
         const financialIncomes = await getList(IncomeModel, request.session.currentUser._id);
         const clients = await getList(ClientModel, request.session.currentUser._id);
-        console.log(clients);
         response.render('insertIncome',{financialIncomes, clients});
     }
 }

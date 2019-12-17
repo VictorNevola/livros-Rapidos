@@ -66,6 +66,7 @@ function myClick(element, operation) {
   let email = beforedelete.childNodes[3].innerText;
   let telefone_div = beforedelete.childNodes[5];
   let telefone = beforedelete.childNodes[5].innerText;
+
   if (operation === "deletar" && parent.className === "buttons") {
     clientHandler.deleteClient(name, email, telefone);
     beforedelete.remove();
