@@ -1,7 +1,8 @@
 const {IncomeModel} = require('../models/financialIncome');
 
-const updateBD = (request, response) => {
+const updateIncomeBD = (request, response) => {
     const incomeId = request.body.incomeId;
+    const idClient = request.body.idClient;
     const nameClient = request.body.nameClient;
     const amount = request.body.amount;
     const valueUnit = request.body.valueUnit;
@@ -11,9 +12,9 @@ const updateBD = (request, response) => {
     const maturityFormat = request.body.maturityFormat;
     const description = request.body.description;
     const category = request.body.category;
-    const invoice = request.body.invoice;
 
     IncomeModel.findByIdAndUpdate(incomeId,{
+        idCliente: idClient,
         nameClient: nameClient,
         amount: amount,
         valueUnit: valueUnit,
@@ -23,7 +24,6 @@ const updateBD = (request, response) => {
         maturityFormat: maturityFormat,
         description: description,
         category: category,
-        invoice: invoice,
     },{'new': true})
     .then((succes)=>{
         response.status(200).json(succes);
@@ -33,4 +33,4 @@ const updateBD = (request, response) => {
     });
 }
 
-module.exports = updateBD;
+module.exports = updateIncomeBD;

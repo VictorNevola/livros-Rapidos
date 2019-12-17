@@ -4,7 +4,7 @@ class IncomeHandler {
       this.BASE_URL = baseUrl;
     }
 
-    createIncome(idUser, idCliente, client, amount, valueUnit, valueTotal, formPGTO, maturity, maturityFormat, description, category, invoice) {
+    createIncome(idUser, idCliente, client, amount, valueUnit, valueTotal, formPGTO, maturity, maturityFormat, description, category) {
       const newIncome = {
         idUser: idUser,
         idCliente: idCliente,
@@ -17,8 +17,7 @@ class IncomeHandler {
         maturityFormat: maturityFormat,
         description: description,
         category: category,
-        invoice: invoice,
-      }
+      };
       return axios.post(`${this.BASE_URL}/addIncomeBD`, newIncome);
     }
 
@@ -30,10 +29,11 @@ class IncomeHandler {
       return axios.get(`${this.BASE_URL}/findIncome/${id}`);
     }
 
-    updateIncome(idIncome, client, amount, valueUnit, valueTotal, formPGTO, maturity,
+    updateIncome(idIncome,idClient, client, amount, valueUnit, valueTotal, formPGTO, maturity,
       maturityFormat, description, category, invoice){
       const updateIncome = {
         incomeId: idIncome,
+        idClient: idClient,
         nameClient: client,
         amount: amount,
         valueUnit: valueUnit,

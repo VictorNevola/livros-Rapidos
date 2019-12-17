@@ -12,7 +12,6 @@ const addIncomeBD = (request, response) => {
    let maturityFormat = request.body.maturityFormat;
    let description = request.body.description;
    let category = request.body.category;
-   let invoice = request.body.invoice;
 
    IncomeModel.create({
       idUser: idUser,
@@ -27,8 +26,7 @@ const addIncomeBD = (request, response) => {
       maturityFormat: maturityFormat,
       description: description,
       category: category,
-      invoice: invoice,
-      date: new Date().toString()
+      date: new Date().toString(),
    })
       .then((income) => {
          response.status(200).json(income);
