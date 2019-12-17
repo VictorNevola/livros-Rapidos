@@ -5,7 +5,8 @@ const ClientSchema = new Schema ({
   idUser: String,
   name: String,
   email: String,
-  tellphone: String
+  tellphone: String,
+  date: Date
 });
 
 const ClientModel = mongoose.model('clients', ClientSchema);

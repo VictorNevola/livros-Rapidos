@@ -20,11 +20,13 @@ const addIncomeBD = (request, response) => {
       amount: amount,
       valueUnit: valueUnit,
       valueTotal: valueTotal,
+      valueTotalInt: parseFLoat(valueTotal),
       formPGTO: formPGTO,
       maturity: maturity,
       maturityFormat: maturityFormat,
       description: description,
       category: category,
+      date: new Date().toString(),
    })
       .then((income) => {
          response.status(200).json(income);

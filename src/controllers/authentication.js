@@ -1,5 +1,6 @@
 const {UserModel} = require('../models/users');
 const bcrypt = require('bcrypt');
+let hour = 1800000;
 
 const authentication = (request, response) => {
     const userEmail = request.body.email;
@@ -27,7 +28,9 @@ const authentication = (request, response) => {
             return;
         }
         if (bcrypt.compareSync(password, user.password)){
+            // request.session.cookie.expires = new Date(Date.now() + hour);
             request.session.currentUser = user;
+            // request.session.cookie.maxAge = hour;
             response.render('ladingPage');
         }else {
             response.render('login', {

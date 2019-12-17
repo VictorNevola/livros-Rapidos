@@ -23,6 +23,7 @@ const findOneById = require('./findIncomeBD');
 const updateIncomeBD = require('./updateIncome');
 const landingPage = require('./landingPage');
 const clientDetail = require('./clientDetail');
+const {findChart, clientChart, incomeChart, incomeClient} = require('./findCharts');
 const addExpenses = require('./insertExpenses');
 const addExpensesBD = require('./addExpenseBD');
 const deletExpenseBD = require('./deleteExpenseBD');
@@ -55,9 +56,13 @@ module.exports = {
     updateIncomeBD,
     landingPage,
     clientDetail,
+    findChart,
+    clientChart,
+    incomeChart,
+    incomeClient,
     addExpenses,
     addExpensesBD,
     deletExpenseBD,
     findExpenseBD,
-    updateExpenseBD
+    updateExpenseBD,
 }

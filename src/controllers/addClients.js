@@ -10,7 +10,7 @@ const addClients = (request, response) => {
     ClientModel.find({ 'idUser': request.session.currentUser._id })
       .then((resp) => {
         console.log(request.session.currentUser._id)
-        console.log(resp)
+        console.log(request.session.cookie.maxAge);
         response.render('addClients', { resp })
       })
       .catch((error) => {

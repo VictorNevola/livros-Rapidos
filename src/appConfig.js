@@ -21,7 +21,7 @@ app.use(session({
   cookie: { maxAge: 36000000 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 // 1 day
+    ttl: 48 * 60 * 60 // 1 day
   })
 }));
 app.use(router);
