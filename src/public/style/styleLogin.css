@@ -6,7 +6,7 @@
 }
 
 body {
-  background: linear-gradient(90deg, rgb(0, 250, 154) 37%, rgba(255,255,255,1) 37%);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 37%, rgba(255,255,255,1) 37%);
 }
 
 nav {
@@ -52,8 +52,8 @@ ul > li {
   padding-bottom: 10px;
   padding-right: 10px;
   margin-right: 5px;
-  border: 1px solid mediumspringgreen;
-  background: mediumspringgreen;
+  border: 1px solid rgba(2,0,36,1);
+  background: rgba(2,0,36,1);
   color: white;
 }
 
@@ -66,7 +66,7 @@ ul > li {
 }
 
 .form-container {
-  background: mediumspringgreen;
+  background: rgba(2,0,36,1);
   width: 700px;
   margin: auto;
   display: flex;
@@ -157,6 +157,6 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   /* border: 1px solid green; */
   -webkit-text-fill-color: white;
-  -webkit-box-shadow: 0 0 0px 1000px mediumspringgreen inset;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(2,0,36,1) inset;
   transition: background-color 5000s ease-in-out 0s;
 }
