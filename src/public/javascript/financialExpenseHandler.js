@@ -40,7 +40,6 @@ document.getElementById('create-new-expense').addEventListener('submit', (event)
 
 function addIncomeDom(result){
   let divTitle = document.querySelector('#expense-List>h3');
-  
   if(divTitle.textContent === "Não possui nenhuma entrada"){
     divTitle.textContent = "Lista de entradas";
   }

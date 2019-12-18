@@ -21,9 +21,7 @@ document.getElementById('create-new-income').addEventListener('submit', function
   let category = document.querySelector("input[name=category]").value;
   
   if (option === "" || client === "" || amount === "" || valueUnit === "" || valueTotal === "" || formPGTO === "" || maturity === ""
-    || description === "" || category === "") {
-  if(option === "" || client === "" || amount === "" || valueUnit === "" || valueTotal === "" || formPGTO === "" || maturity === ""
-  || description === "" || category === ""){
+    || description === "" || category === ""){
     message("Campos não podem estar vazios, verificar!");
     return;
   };
@@ -66,24 +64,20 @@ function addIncomeDom(result) {
     divTitle.textContent = "Lista de entradas";
   }
 
-  let divParent = document.querySelector('#income-List');
-  let divIncome = document.createElement('div')
+  let divParent = document.querySelector('.list-container');
+  let divIncome = document.createElement('div');
   divIncome.id = 'income';
   divIncome.innerHTML = `
-      <div>Cliente: ${result.nameClient}</div>
-      divIncome.id = 'income';
-      divIncome.innerHTML = `
-      <div value="${result.idCliente}">Cliente: ${result.nameClient}</div>
-      <div>Quantidade: ${result.amount}</div>
-      <div>Valor Unitario: ${result.valueUnit}</div>
-      <div>Valor Total: R$ ${result.valueTotal}</div>
-      <div>Forma de Pagamento: ${result.formPGTO}</div>
-      <div>Vencimento: ${result.maturityFormat}</div>
-      <div>Categoria: ${result.category}</div>
-      <div>Descrição: ${result.description}</div>
+      <div value="${result.idCliente}"><strong>Cliente: </strong>${result.nameClient}</div>
+      <div><strong>Quantidade: </strong>${result.amount}</div>
+      <div><strong>Valor Unitario: </strong>${result.valueUnit}</div>
+      <div><strong>Valor Total: </strong>R$ ${result.valueTotal}</div>
+      <div><strong>Forma de Pagamento: </strong>${result.formPGTO}</div>
+      <div><strong>Vencimento: </strong>${result.maturityFormat}</div>
+      <div><strong>Categoria: </strong>${result.category}</div>
+      <div><strong>Descrição: </strong>${result.description}</div>
       <button class="btn-delete" name="${result._id}">Excluir</button>
-      <button class="btn-edit" name="${result._id}">Editar</button>
-      <hr></hr>`
+      <button class="btn-edit" name="${result._id}">Editar</button>`
   divParent.appendChild(divIncome);
   updateButtons();
 }
@@ -105,7 +99,7 @@ function edit(event){
   let idIncome = event.srcElement.name;
   let parent = event.target.parentElement;
   let client = parent.childNodes[1];
-      client.innerHTML = `<label>Cliente: </label>
+      client.innerHTML = `<label> <strong>Cliente: </strong></label>
       <select name="clients" id="clients">
       </select>`
   let amount = parent.childNodes[3];
@@ -132,24 +126,24 @@ function edit(event){
           select.appendChild(option);
     });
 
-    amount.innerHTML = `<label>Quantidade: </label>
+    amount.innerHTML = `<label> <strong>Quantidade: </strong></label>
     <input class="amount" type="number" name="amount" value="${result.data.succes.amount}" step="any" title="Adicionar quantidade, Não utilizar virgula somente ponto!">
     `
-    valueUnit.innerHTML = `<label >Valor unitario R$:</label>
+    valueUnit.innerHTML = `<label ><strong>Valor unitario: </strong>R$</label>
     <input class="valueUnit" type="number" name="valueUnit" value="${result.data.succes.valueUnit}" step="any" title="Adicionar valor unitario, Não utilizar virgula somente ponto!">
     `
-    valueTotal.innerHTML = `<label id="valueTotal"> Valor total:<strong> ${result.data.succes.valueTotal} </strong></label>`
+    valueTotal.innerHTML = `<label id="valueTotal">Valor total: <strong> R$ ${result.data.succes.valueTotal} </strong> </label>`
 
-    formPGTO.innerHTML = `<label>Forma de Pagamento:</label>
+    formPGTO.innerHTML = `<label><strong>Forma de PGTO: </strong></label>
     <input type="text" name="formPGTO" value="${result.data.succes.formPGTO}">
     `
-    maturity.innerHTML = `<label>Vencimento:</label>
+    maturity.innerHTML = `<label><strong>Vencimento: </strong></label>
     <input type="date" name="maturity" value="${result.data.succes.maturity}">
     `
-    category.innerHTML = `<label>Categoria:</label>
+    category.innerHTML = `<label><strong>Categoria: </strong></label>
     <input type="text" name="category" value="${result.data.succes.category}">
     `
-    description.innerHTML = `<label>Descrição:</label>
+    description.innerHTML = `<label><strong>Descrição: </strong></label>
     <input type="text" name="description" value="${result.data.succes.description}">
     `
     btnDelet.classList.remove('btn-delete');
@@ -182,14 +176,14 @@ function cancel(event) {
   
   incomeHandler.findOneRegisterIncome(idIncome)
   .then((result)=>{
-    client.innerHTML = `<div>Cliente: ${result.data.succes.nameClient}</div>`
-    amount.innerHTML = `<div>Quantidade: ${result.data.succes.amount}</div>`
-    valueUnit.innerHTML = `<div>Valor unitario:R$ ${result.data.succes.valueUnit}</div>`
-    valueTotal.innerHTML = `<div> Valor total: ${result.data.succes.valueTotal}`
-    formPGTO.innerHTML = `<div>Forma de Pagamento: ${result.data.succes.formPGTO}`
-    maturity.innerHTML = `<div>Vencimento: ${result.data.succes.maturityFormat}`
-    category.innerHTML = `<div>Categoria: ${result.data.succes.category}`
-    description.innerHTML = `<div>Descrição: ${result.data.succes.description}`
+    client.innerHTML = `<div><strong>Cliente: </strong>${result.data.succes.nameClient}</div>`
+    amount.innerHTML = `<div><strong>Quantidade: </strong>${result.data.succes.amount}</div>`
+    valueUnit.innerHTML = `<div><strong>Valor unitario: </strong>R$ ${result.data.succes.valueUnit}</div>`
+    valueTotal.innerHTML = `<div><strong>Valor total: </strong>R$ ${result.data.succes.valueTotal}`
+    formPGTO.innerHTML = `<div><strong>Forma de PGTO: </strong>${result.data.succes.formPGTO}`
+    maturity.innerHTML = `<div><strong>Vencimento: </strong>${result.data.succes.maturityFormat}`
+    category.innerHTML = `<div><strong>Categoria: </strong>${result.data.succes.category}`
+    description.innerHTML = `<div><strong>Descrição: </strong>${result.data.succes.description}`
 
     btnSave.classList.remove('btn-update');
     btnSave.classList.add('btn-delete');
@@ -257,3 +251,15 @@ function updateButtons() {
     updateButton[i].onclick = updateBD;
   }
 }
+
+const navSlide = () => {
+  const burguer = document.querySelector('.burguer');
+  const nav = document.querySelector('.ul-horizontal ');
+  const push = document.querySelector('#body2');
+  burguer.addEventListener('click', () => {
+    nav.classList.toggle('nav-active');
+    push.classList.toggle('body2-style');
+  })
+}
+
+navSlide();
