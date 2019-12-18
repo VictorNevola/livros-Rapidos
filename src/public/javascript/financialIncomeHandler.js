@@ -255,10 +255,8 @@ function updateButtons() {
 const navSlide = () => {
   const burguer = document.querySelector('.burguer');
   const nav = document.querySelector('.ul-horizontal ');
-  const push = document.querySelector('#body2');
   burguer.addEventListener('click', () => {
     nav.classList.toggle('nav-active');
-    push.classList.toggle('body2-style');
   })
 }
 
