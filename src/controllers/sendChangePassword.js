@@ -27,7 +27,8 @@ const sendChangePassword = (request, response) =>{
                 .catch((err)=>{
                     console.log('Erro na inserção, VERIFICAR!!!!!!');
                 })
-                const html = `<a href='https://livros-rapidos.herokuapp.com/changepass/?token=${hashPass}'>Trocar</a>` 
+                // `<a href='https://livros-rapidos.herokuapp.com/changepass/?token=${hashPass}'>Trocar</a>`
+                const html = `<a href='http://localhost:3000/changepass/?token=${hashPass}'>Trocar</a>` 
                 sendEmail(subject, html, userEmail);
                 response.render('changePassword', {
                     Message: `Para alterar a sua senha, por gentileza, acesse o link que enviamos para seu e-mail.`
