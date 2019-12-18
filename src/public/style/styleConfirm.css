@@ -54,6 +54,8 @@ ul > li {
   margin-right: 5px;
   border: 1px solid rgba(2,0,36,1);
   background: rgba(2,0,36,1);
+  border: 1px solid #253e4a;
+  background: #253e4a;
   color: white;
 }
 
@@ -158,7 +160,7 @@ ul > li {
   margin-bottom: 15px;
 }
 
-input:-webkit-autofill,
+/* input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
@@ -167,8 +169,7 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  /* border: 1px solid green; */
   -webkit-text-fill-color: white;
   -webkit-box-shadow: 0 0 0px 1000px rgba(2,0,36,1)inset;
   transition: background-color 5000s ease-in-out 0s;
-}
+} */

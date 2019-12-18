@@ -54,8 +54,10 @@
   overflow: visible;
 }
 
-.nav-side > ul > li {
-  /* height: 60px; */
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .side-menu-item {

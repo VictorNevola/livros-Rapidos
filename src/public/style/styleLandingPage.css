@@ -22,16 +22,6 @@
   justify-content: space-between;
 }
 
-/* .ul-horizontal {
-  display: flex;
-  list-style-type: none;
-}
-
-.ul-horizontal > li {
-  text-decoration: none;
-  padding: 0px 20px;
-} */
-
 .log-out{
   text-decoration: none;
   color: #223A45;
