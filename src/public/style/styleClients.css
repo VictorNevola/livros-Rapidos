@@ -8,7 +8,7 @@
 .dash-nav {
   display: flex;
   min-height: 8vh;
-  background: rgba(2,0,36,1);;
+  background: #223A45;
   align-items: center;
   justify-content: space-between;
 }
@@ -25,10 +25,16 @@
 
 .log-out{
   text-decoration: none;
-  color: rgba(2,0,36,1);;
+  color: #223A45;;
   padding: 8px;
   margin-right: 5px;
   background: white;
+}
+
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .nav-side {
@@ -36,7 +42,7 @@
   width: 50px;
   position: absolute;
   height: 92vh;
-  background: rgba(2,0,36,1);;
+  background: #223A45;;
   /* position: fixed; */
   /* z-index: 50; */
   transition:width .3s ease-in;
@@ -90,7 +96,7 @@
 
 .Tittle {
   text-align: center;
-  margin: 30px 0px;
+  margin: 110px 0px;
 }
 
 .create-new-client {
@@ -138,7 +144,7 @@
 }
 
 .button {
-  background-color: rgba(2,0,36,1);;
+  background-color: #223A45;;
   padding: .5em;
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -155,14 +161,14 @@
 .dash-nav {
   display: flex;
   min-height: 8vh;
-  background: rgba(2,0,36,1);;
+  background: #223A45;;
   align-items: center;
   justify-content: space-between;
 }
 
 .log-out{
   text-decoration: none;
-  color: rgba(2,0,36,1);;
+  color: #223A45;;
   padding: 8px;
   margin-right: 5px;
   background: white;
@@ -188,7 +194,7 @@
   position: absolute;
   height: 92vh;
   top: 8vh;
-  background-color: rgba(2,0,36,1);;
+  background-color: #223A45;;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -200,9 +206,9 @@
   list-style-type: none;
   width: 50px;  
   position: absolute;
-  height: 250vh;
+  height: 92vh;
   top: 8vh;
-  background-color: rgba(2,0,36,1);;
+  background-color: #223A45;;
   display: flex;
   flex-direction: column;
   align-items: center;

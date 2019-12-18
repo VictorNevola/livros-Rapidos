@@ -1,9 +1,10 @@
 const { ClientModel } = require('../models/clients');
 const { IncomeModel } = require('../models/financialIncome');
+const { ExpensesModel } = require('../models/financialExpenses');
 
 const findChart = (request, response) => {
   IncomeModel.aggregate([{ $match: { 'idUser': request.session.currentUser._id } },
-    { $group: { _id: "$maturity", "count": { "$sum": 1 } } }])
+  { $group: { _id: "$maturity", "count": { "$sum": 1 } } }])
     .then(resp => {
       response.status(200).json(resp);
     })
@@ -14,7 +15,7 @@ const findChart = (request, response) => {
 
 const clientChart = (request, responses) => {
   ClientModel.aggregate([{ $match: { 'idUser': request.session.currentUser._id } },
-  { $project : {dates: {"$dateToString": { format: "%Y-%m-%d", date: "$date" } } }},
+  { $project: { dates: { "$dateToString": { format: "%Y-%m-%d", date: "$date" } } } },
   { $group: { _id: "$dates", "count": { "$sum": 1 } } }])
     .then(resposta => {
       responses.status(200).json(resposta);
@@ -26,8 +27,8 @@ const clientChart = (request, responses) => {
 
 const incomeChart = (request, responses) => {
   IncomeModel.aggregate([{ $match: { 'idUser': request.session.currentUser._id } },
-    { $project: { number: "$maturity", "total": { "$multiply": ["$amount", "$valueUnit"] } } },
-    { $group: { _id: "$number", "soma": { "$sum": "$total" } } }])
+  { $project: { number: "$maturity", "total": { "$multiply": ["$amount", "$valueUnit"] } } },
+  { $group: { _id: "$number", "soma": { "$sum": "$total" } } }])
     .then(respost => {
       responses.status(200).json(respost);
     })
@@ -39,8 +40,8 @@ const incomeChart = (request, responses) => {
 
 const incomeClient = (request, response) => {
   IncomeModel.aggregate([{ $match: { 'idUser': request.session.currentUser._id } },
-    { $project: { number: "$nameClient", "total": { "$multiply": ["$amount", "$valueUnit"] } } },
-    { $group: { _id: "$number", "soma": { "$sum": "$total" } } }])
+  { $project: { number: "$nameClient", "total": { "$multiply": ["$amount", "$valueUnit"] } } },
+  { $group: { _id: "$number", "soma": { "$sum": "$total" } } }])
     .then(respost => {
       response.status(200).json(respost);
     })
@@ -49,13 +50,35 @@ const incomeClient = (request, response) => {
     })
 }
 
+const ExpensesClient = (request, response) => {
+  ExpensesModel.aggregate([{ $match: { 'idUser': request.session.currentUser._id } },
+  { $group: { _id: "$maturity", "count": { "$sum": 1 } } }])
+    .then(resp => {
+      response.status(200).json(resp);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+}
+
+const expensePerClient = (request, response) => {
+  ExpensesModel.aggregate([{ $match: { 'idUser': request.session.currentUser._id } },
+  { $project: { number: "$nameProvider", "total": { "$multiply": ["$amount", "$valueUnit"] } } },
+  { $group: { _id: "$number", "soma": { "$sum": "$total" } } }])
+    .then(respost => {
+      response.status(200).json(respost);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+}
 // Pegar total de clientes
 // ([{ $group: { _id: "$idUser", "count": { "$sum": 1 } } }])
 
 // Pegar total de receita 
 // ([   {$project: { number: "$maturity", "total": {"$multiply": ["$amount", "$valueUnit"]}}},   {$group:   {_id:"total", "soma": {"$sum": "$total"} }}])
 
-module.exports = { findChart, clientChart, incomeChart, incomeClient };
+module.exports = { findChart, clientChart, incomeChart, incomeClient, ExpensesClient, expensePerClient};
 
 // { $match: { 'idUser': request.session.currentUser._id } },
 //   { $group: { _id: "$date", "count": { "$sum": 1 } } }])

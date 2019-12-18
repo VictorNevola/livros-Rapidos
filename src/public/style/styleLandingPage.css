@@ -17,7 +17,7 @@
 .dash-nav {
   display: flex;
   min-height: 8vh;
-  background: rgba(2,0,36,1);
+  background: #223A45;
   align-items: center;
   justify-content: space-between;
 }
@@ -34,7 +34,7 @@
 
 .log-out{
   text-decoration: none;
-  color: rgba(2,0,36,1);
+  color: #223A45;
   padding: 8px;
   margin-right: 5px;
   background: white;
@@ -44,7 +44,7 @@
   float: left;
   width: 50px;
   min-height: 100vh;
-  background: rgba(2,0,36,1);
+  background: #223A45;
   position: fixed;
   z-index: 50;
   transition:width .1s ease;
@@ -118,6 +118,11 @@
   padding: 10px;
 }
 
+.logo-img {
+  width: 80px;
+  padding: 10px;
+}
+
 .inputs {
   margin-bottom: 20px;
   /* background: transparent; */
@@ -140,8 +145,14 @@
   font-size: 18px;
 }
 
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 .button {
-  background-color: rgba(2,0,36,1);
+  background-color: #223A45;
   padding: .5em;
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -167,7 +178,7 @@
   position: absolute;
   height: 150vh;
   top: 8vh;
-  background-color: rgba(2,0,36,1);
+  background-color: #223A45;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -179,9 +190,9 @@
   list-style-type: none;
   width: 50px;  
   position: absolute;
-  height: 100vh;
-  top: 8vh;
-  background-color: rgba(2,0,36,1);
+  height: 110vh;
+  top: 11vh;
+  background-color: #223A45;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -239,4 +250,17 @@
 .space > a {
   color: white;
   text-decoration: none;
+}
+
+.graph-container {
+  /* padding-left: 20px; */
+  /* padding-right: 20px; */
+}
+
+@media only screen and (max-width: 1275px) {
+
+  .graph-container {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
 }

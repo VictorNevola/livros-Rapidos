@@ -8,6 +8,10 @@ class ClientHandler {
     return axios.get('/chart');
   }
 
+  getData2() {
+    return axios.get('/chartL');
+  }
+
   getDataClients() {
     return axios.get('/chart2');
     axios.get('/chart2')
@@ -27,6 +31,10 @@ class ClientHandler {
 
   getDataIncomeClient() {
     return axios.get('/chart4');
+  }
+
+  getDataExpensePerClient() {
+    return axios.get('/chartE');
   }
 
   // createCLient(name, email, tellphone) {
