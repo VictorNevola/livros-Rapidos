@@ -53,8 +53,8 @@ ul > li {
   padding-bottom: 10px;
   padding-right: 10px;
   margin-right: 5px;
-  border: 1px solid mediumspringgreen;
-  background: mediumspringgreen;
+  border: 1px solid rgba(2,0,36,1);
+  background: rgba(2,0,36,1);
   color: white;
 }
 
@@ -64,15 +64,15 @@ ul > li {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right: 10px;
-  border: 1px solid mediumspringgreen;
-  background: mediumspringgreen;
+  border: 1px solid rgba(2,0,36,1);
+  background: rgba(2,0,36,1);
   color: white;
 }
 
 .banner-btn {
-  border: 1px solid mediumspringgreen;
+  border: 1px solid rgba(2,0,36,1);
   padding: 10px;
-  background: mediumspringgreen;
+  background: rgba(2,0,36,1);
   text-decoration: none;
   color: white;
 }
@@ -101,7 +101,7 @@ ul > li {
 
 
 .about-container > div > div {
-  background: mediumspringgreen;
+  background: rgba(2,0,36,1);
   /* padding-right: 90px; */
 }
 
@@ -126,7 +126,8 @@ ul > li {
 }
 
 .item2 {
-  background: mediumspringgreen;
+  background: rgba(2,0,36,1);
+  color: white;
 }
 
 
@@ -147,7 +148,7 @@ ul > li {
 }
 
 .mini-item-container > div > div  {
-  border: 1px solid mediumspringgreen;
+  border: 1px solid rgba(2,0,36,1);
 }
 
 .row {
@@ -184,7 +185,7 @@ ul > li {
 }
 
 footer {
-  background: mediumspringgreen;
+  background: rgba(2,0,36,1);
   color: white;
   font-family: 'Tajawal', sans-serif;
   font-size: large;
@@ -197,7 +198,7 @@ footer > div > div {
 
 footer > div > div > div > a {
   text-decoration: none;
-  color: mediumspringgreen;
+  color: #253e4a;
   border: 1px solid white;
   padding: 10px;
   background: white;

@@ -33,13 +33,13 @@
                     {{#if errorMessage}}
                     <div class="error"> {{errorMessage}}</div>
                     {{/if}}
-                    <input class="inputs" type="text" placeholder="E-mail" name="email">
+                    <input class="inputs" type="text" placeholder="E-mail" name="email" onblur="validateEmail2()">
                     <input class="inputs" type="password" placeholder="Senha" name="password">
                     {{#if errorConfirmed}}
                     <a class="success" href="/confirmemail">{{errorConfirmed}}</a>
                     {{/if}}
                     <button id="submit" type="submit">Entrar</button>
-                </form> 
+                </form>
                 <div class="register-container">
                     <a class="register" href="/register">Não é cadastrado? Clique aqui</a>
                     <a class="register" href="/changePassword">Esqueci a senha</a>
@@ -48,6 +48,7 @@
         </div>
     </section>
 
+    <script type="text/javascript" src="../javascript/validate.js"></script>
 </body>
 
 {{!-- <form action="/login" method="POST">

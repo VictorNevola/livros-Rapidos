@@ -17,14 +17,14 @@
 .dash-nav {
   display: flex;
   min-height: 8vh;
-  background: #253e4a;
+  background: rgba(2,0,36,1);
   align-items: center;
   justify-content: space-between;
 }
 
 .log-out{
   text-decoration: none;
-  color: #253e4a;
+  color: rgba(2,0,36,1);
   padding: 8px;
   margin-right: 5px;
   background: white;
@@ -34,7 +34,7 @@
   float: left;
   width: 50px;
   min-height: 100vh;
-  background: #223a45;
+  background: rgba(2,0,36,1);
   position: fixed;
   z-index: 50;
   transition:width .1s ease;
@@ -131,7 +131,7 @@
 }
 
 .button {
-  background-color: #7da4e8;
+  background-color: rgba(2,0,36,1);
   padding: .5em;
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -157,7 +157,7 @@
   position: absolute;
   height: 150vh;
   top: 8vh;
-  background-color: #253e4a;
+  background-color: rgba(2,0,36,1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -171,7 +171,7 @@
   position: absolute;
   height: 100vh;
   top: 8vh;
-  background-color: #253e4a;
+  background-color: rgba(2,0,36,1);
   display: flex;
   flex-direction: column;
   align-items: center;
