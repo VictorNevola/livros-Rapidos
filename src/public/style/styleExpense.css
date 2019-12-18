@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+  }
+  
+  .body2-pre {
+    padding-left: 5%;
+  }
+  
+  .body2-style {
+    padding-left: 15%;
+    transition: padding-left 0.5s ease-in;
+  }
+  
+  .dash-nav {
+    display: flex;
+    min-height: 8vh;
+    background: #253e4a;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .log-out{
+    text-decoration: none;
+    color: #253e4a;
+    padding: 8px;
+    margin-right: 5px;
+    background: white;
+  }
+  .icon-img {
+    width: 50px;
+    padding: 10px;
+  }
+  
+  .nav-side {
+    float: left;
+    width: 50px;
+    min-height: 100vh;
+    background: #223a45;
+    position: fixed;
+    z-index: 50;
+    transition:width .1s ease;
+    overflow: hidden;
+  }
+  
+  .open {
+    width: 140px;
+    overflow: visible;
+  }
+  
+  .nav-side > ul > li {
+    height: 60px;
+  }
+  .nav-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  .expense-container {
+    border: 1px solid rgba(0, 0, 0, 0.527);
+    border-radius: 20px ;
+    width: 68%;
+    margin: auto;
+    margin-top: 15px;
+    padding: 25px;
+  }
+  
+  .form-container{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-Insert{
+    display: flex;
+    text-align: right;
+    margin-top: 15px;
+  }
+  
+  .form-Insert fieldset {
+    width: 100%;
+    border: none;
+    margin-bottom: 2%;
+  }
+  
+  .form-Insert label{
+    text-align: center;
+    margin-right: 8px;
+    font-size: 18px;
+  }
+  
+  .form-Insert a{
+    float: right;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    margin-right: 4px;
+    color: #223a45;
+  }
+  
+  .form-Insert select{
+    float: right;
+    margin-right: 15px;
+    border: none;
+    width: 50%;
+    font-size: 15px;
+    background: transparent;
+    border: 1px solid rgba(128, 128, 128, 0.671);
+  }
+  
+  .form-Insert input {
+    float: right;
+    width: 52%;
+    margin-right: 15px;
+    border: none;
+    border-bottom:1px solid black;
+    font-size: 15px;
+  }
+  
+  .form-Insert strong {
+    float: right;
+    margin-right: 15px;
+    width: 52%;
+  }
+  
+  .button-add {
+    text-align: center;
+    margin-bottom: 1%;
+  }
+  
+  .button-add button {
+   background-color: #7da4e8;
+   padding: .5em;
+   border-radius: 55px;
+   width: 100px;
+   color: #fff;
+   font-size: 15px;
+   text-decoration: none;
+   border: none;
+   font-weight: bolder;
+  }
+  
+  .title {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .inputs {
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid black;
+    color: black;
+    width: 230px;
+    height: 30px;
+    font-size: 18px;
+  }
+  
+  .burguer div {
+    width: 25px;
+    height: 2.5px;
+    background-color: white;
+    margin: 5px;
+  }
+  
+  .ul-horizontal {
+    list-style-type: none;
+    width: 180px;
+    position: absolute;
+    height: 92vh;
+    top: 8vh;
+    background-color: #253e4a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in;
+  }
+  
+  .ul-horizontal2 {
+    list-style-type: none;
+    width: 50px;  
+    position: absolute;
+    height: 92vh;
+    top: 8vh;
+    background-color: #253e4a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.5s ease-in;
+  }
+  
+  .nav-active {
+    transform: translateX(0%);
+  }
+  
+  .space {
+    padding: 19px 0px;
+  }
+  
+  .receitas {
+    padding: 5px;
+    border: 1px solid black;
+    width: 200px;
+  }
+  
+  .values-list {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .late {
+    color: red;
+  }
+  
+  .space > a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  #expense-List {
+    border: 1px solid rgba(0, 0, 0, 0.527);
+    border-radius: 20px;
+    width: 70%;
+    margin: auto;
+    margin-top: 10px;
+    padding: 25px;
+    padding-top: 5px;
+  }
+  
+  .list-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 10px;
+  }
+  
+  #expense-List h3 {
+    text-align: center;
+    font-size: 20px;
+  }
+  #expense button {
+    margin: 5px 2px;
+    width: 75px;
+  }
+  .btn-delete{
+    color: #fff;
+    background-color: #CF000F;
+    border-color: #CF000F;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: bolder;
+  }
+  
+  .btn-edit {
+    color: #fff;
+    background-color: #7da4e8;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: bolder;
+  }
+  
+  #provider {
+    border: none;
+    font-size: 15px;
+    background: transparent;
+    border: 1px solid rgba(128, 128, 128, 0.671);
+  }
+  
+  .btn-update {
+    color: #fff;
+    background-color: #CF000F;
+    border-color: #CF000F;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: bolder;
+  }
+  
+  .btn-cancel{
+    color: #fff;
+    background-color: #7da4e8;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: bolder;
+  }
+  
+  #expense input {
+    border: none;
+    border-bottom:1px solid black;
+    font-size: 15px;
+    width: 50%;
+  }
+  
+  #expense hr {
+    margin: 10px 0;
+  }
+  
+  #expense {
+    margin-top: 10px;
+    height: 200px;
+    border-bottom: 1px solid black ;
+  }

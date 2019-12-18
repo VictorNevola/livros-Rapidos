@@ -1,55 +1,136 @@
 <head>
+    <link rel="stylesheet" href="../style/styleIncome.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    
-<h2>Adicionar Receita:</h2>
-<form id="create-new-income">
-    <label>Cliente:</label>
-    <select name="clients" id="">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="opel">Opel</option>
-    <option value="audi">Audi</option>
-    </select>
-    <label >Quantidade:</label>
-    <input type="number" name="amount" value="0" step="any" title="Adicionar quantidade, Não utilizar virgula somente ponto!">
-    <label >Valor unitario R$:</label>
-    <input type="number" name="valueUnit" value="0" step="any" title="Adicionar valor unitario, Não utilizar virgula somente ponto!">
-    <label id="valueTotal"> Valor total: <strong></strong></label>
-    <label>Forma de Pagamento:</label>
-    <input type="text" name="formPGTO">
-    <label>Vencimento:</label>
-    <input type="date" name="maturity">
-    <label>Descrição:</label>
-    <input type="text" name="description">
-    <label>Categoria:</label>
-    <input type="text" name="category">
-    <label>Nota fiscal:</label>
-    <input type="file" name="invoice">
+  <nav class="dash-nav">
+    <div class="burguer">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+    <div>Logo Aqui</div>
+    <ul class="ul-horizontal">
+      <li class="space">
+        <a href="/landingPage" title="Deashbord">Dahsboard</a>
+      </li>
+      <li class="space">
+        <a href="/addClients" title="Adicionar Clientes">Clientes</a>
+      </li>
+      <li class="space">
+        <a href="/addIncome" title="Adicionar Receita">Receita</a>
+      </li>
+      <li class="space">
+        <a href="/addExpenses" title="Adicionar Despesa">Despesas</a>
+      </li>
+    </ul>
+
+    <ul class="ul-horizontal2">
+      <li>
+        <a href="/landingPage">
+          <img class="icon-img" src="../images/icon2.svg" alt="" title="Deashbord">
+        </a>
+        {{!-- <a class="side-menu-item" href="/landingPage">Dahsboard</a> --}}
+      </li>
+      <li>
+        <a href="/addCLients">
+          <img class="icon-img" src="../images/cliente.svg" alt="" title="Adicionar Clientes">
+        </a>
+        {{!-- <a class="side-menu-item" href="/landingPage">Clientes</a> --}}
+      </li>
+      <li>
+        <a href="/addIncome">
+          <img class="icon-img" src="../images/icon1.svg" alt="" title="Adicionar Receita">
+        </a>
+        {{!-- <a class="side-menu-item" href="">Receita</a> --}}
+      </li>
+      <li>
+        <a href="/addExpenses">
+          <img class="icon-img" src="../images/icon3.svg" alt="" title="Adicionar Despesa">
+        </a>
+        {{!-- <a class="side-menu-item" href="">Renda</a> --}}
+      </li>
+    </ul>
+
+    <div>
+      <a href="/logout" class="log-out" title="Sair Da Sessão">Logout</a>
+    </div>
+   </nav>
+   
+<div class="title">   
+  <h2>Adicionar Receita</h2>
+  <h4>Adicione os dados da receita abaixo</h4>
+</div>
+<div class="income-container">
+  <div class="form-container">
+    <form class="form-Insert" id="create-new-income">
+    <fieldset>
+      <fieldset>
+      <label>Cliente:</label>
+      <select name="clients" id="clients">
+      {{#each clients}}
+      <option value={{_id}}>{{name}}</option>
+      {{/each}}
+      </select>
+      <a href="/addClients" title="Adicionar cliente">+</a>
+      </fieldset>
+      <fieldset>
+      <label >Quantidade:</label>
+      <input class="amount" type="number" name="amount" value="0" step="any" title="Adicionar quantidade, Não utilizar virgula somente ponto!">
+      </fieldset>
+      <fieldset>
+      <label >Valor unitario R$:</label>
+      <input class="valueUnit" type="number" name="valueUnit" value="0" step="any" title="Adicionar valor unitario, Não utilizar virgula somente ponto!">
+      </fieldset>
+      <fieldset>
+      <label id="valueTotal"> Valor total:<strong>R$ 0,00 </strong></label>
+      </fieldset>
+    </fieldset>
+    <fieldset>
+      <fieldset>
+      <label>Forma de Pagamento:</label>
+      <input type="text" name="formPGTO">
+      </fieldset>
+      <fieldset>
+      <label>Vencimento:</label>
+      <input type="date" name="maturity">
+      </fieldset>
+      <fieldset>
+      <label>Descrição:</label>
+      <input type="text" name="description">
+      </fieldset>
+      <fieldset>
+      <label>Categoria:</label>
+      <input type="text" name="category">
+      </fieldset>
+    </fieldset>
+  </div>
+    <div class="button-add">
     <button type="submit">Adicionar</button>
-</form>
-<div class="message-container"></div>
+    <div class="message-container"></div>
+    </div>
+  </form>
+</div>
+
+
 <section id="income-List">
-{{#if result}}
-    <h3> Lista de entradas </h3>
-    {{#each result}}
-        <div>Cliente: {{nameClient}}</div>
-        <div>Quantidade: {{amount}}</div>
-        <div>Valor unitario: {{valueUnit}}</div>
-        <div>Valor Total: {{valueTotal}}</div>
-        <div>Forma de Pagamento: {{formPGTO}}</div>
-        <div>Vencimento: {{maturity}}</div>
-        <div>Categoria: {{category}}</div>
-        <div>Descrição: {{description}}</div>
-        <div>Visualizar nota fiscal: {{invoice}}</div>
-        <HR></HR>
+    <h3> Lista de entradas </h3> 
+    <div class="list-container">
+    {{#each financialIncomes}}
+    <div id="income">
+        <div value="{{idCliente}}"> <strong>Cliente: </strong>{{nameClient}}</div>
+        <div> <strong>Quantidade: </strong>{{amount}}</div>
+        <div> <strong>Valor unitario: </strong>R$  {{valueUnit}}</div>
+        <div><strong>Valor Total: </strong>R$ {{valueTotal}}</div>
+        <div><strong>Forma de PGTO:  </strong>{{formPGTO}}</div>
+        <div><strong>Vencimento:  </strong>{{maturityFormat}}</div>
+        <div><strong>Categoria:  </strong>{{category}}</div>
+        <div><strong>Descrição:  </strong> {{description}}</div>
+        <button class="btn-delete" name="{{_id}}" type="button">Excluir</button>
+        <button class="btn-edit" name="{{_id}}" type="button">Editar</button>
+    </div>
     {{/each}}
-
-    {{else}}
-        <h3>Não possui nenhuma entrada</h3>
-{{/if}}
-
+    </div>  
 </section>
 
 <script type="text/javascript" src="../javascript/financialIncome.js"></script>

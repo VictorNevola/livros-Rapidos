@@ -1,5 +1,6 @@
 const {UserModel} = require('../models/users');
 const bcrypt = require('bcrypt');
+let hour = 1800000;
 
 const authentication = (request, response) => {
     const userEmail = request.body.email;
@@ -27,7 +28,8 @@ const authentication = (request, response) => {
             return;
         }
         if (bcrypt.compareSync(password, user.password)){
-            response.redirect('/');
+            request.session.currentUser = user;
+            response.render('ladingPage');
         }else {
             response.render('login', {
                 errorMessage: `Senha incorreta!`,

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../style/styleLandingPage.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>Landing Page</title>
+</head>
+
+<body>
+  <nav class="dash-nav">
+    <div class="burguer">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+    <div>Logo Aqui</div>
+    <ul class="ul-horizontal">
+      <li class="space">
+        <a href="/landingPage" title="Deashbord">Dahsboard</a>
+      </li>
+      <li class="space">
+        <a href="/addClients" title="Adicionar Clientes">Clientes</a>
+      </li>
+      <li class="space">
+        <a href="/addIncome" title="Adicionar Receita">Receita</a>
+      </li>
+      <li class="space">
+        <a href="/addExpense" title="Adicionar Despesa">Despesas</a>
+      </li>
+    </ul>
+
+    <ul class="ul-horizontal2">
+      <li>
+        <a href="/landingPage">
+          <img class="icon-img" src="../images/icon2.svg" alt="" title="Deashbord">
+        </a>
+        {{!-- <a class="side-menu-item" href="/landingPage">Dahsboard</a> --}}
+      </li>
+      <li>
+        <a href="/addCLients">
+          <img class="icon-img" src="../images/cliente.svg" alt="" title="Adicionar Clientes">
+        </a>
+        {{!-- <a class="side-menu-item" href="/landingPage">Clientes</a> --}}
+      </li>
+      <li>
+        <a href="/addIncome">
+          <img class="icon-img" src="../images/icon1.svg" alt="" title="Adicionar Receita">
+        </a>
+        {{!-- <a class="side-menu-item" href="">Receita</a> --}}
+      </li>
+      <li>
+        <a href="/addExpense">
+          <img class="icon-img" src="../images/icon3.svg" alt="" title="Adicionar Desepesa">
+        </a>
+        {{!-- <a class="side-menu-item" href="">Renda</a> --}}
+      </li>
+    </ul>
+
+    <div>
+      <a href="/logout" class="log-out" title="Sair Da Sessão">Logout</a>
+    </div>
+
+  </nav>
+  <div class="graficos">
+    <div class="chart chart1">
+      <canvas id="line-chart" class="canvas"></canvas>
+    </div>
+    <div class="chart chart2">
+      <canvas id="line-chart2" class="canvas"></canvas>
+    </div>
+  </div>
+    <div class="graficos">
+    <div class="pie pie1">
+      <canvas id="pie-chart" class="canvas"></canvas>
+    </div>
+    <div class="chart chart2">
+      <canvas id="bar-chart1" class="canvas"></canvas>
+    </div>
+  </div>
+  {{!-- <script type="text/javascript" src="../javascript/chart.js"></script>
+  <script type="text/javascript" src="../javascript/ChartHandler.js"></script> --}}
+  <script type="text/javascript" src="../javascript/clients2.js"></script>
+  <script type="text/javascript" src="../javascript/clientsHandler2.js"></script>
+  <script type="text/javascript" src="../javascript/details.js"></script>
+</body>
+
+</html>

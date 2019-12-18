@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../style/styleDetails.css">
+  <link href="https://fonts.googleapis.com/css?family=Tajawal&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>Clientes</title>
+</head>
+
+<body>
+  <nav class="dash-nav">
+    <div class="burguer">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+    <div>Logo Aqui</div>
+    <ul class="ul-horizontal">
+      <li class="space">
+        <a href="/landingPage">Dahsboard</a>
+      </li>
+      <li class="space">
+        <a href="/addClients">Clientes</a>
+      </li>
+      <li class="space">
+        <a href="/addIncome">Receita</a>
+      </li>
+      <li class="space">
+        <a href="/addClients">Teste</a>
+      </li>
+    </ul>
+
+    <ul class="ul-horizontal2">
+      <li>
+        <a href="/landingPage">
+          <img class="icon-img" src="../images/icon2.svg" alt="">
+        </a>
+        {{!-- <a class="side-menu-item" href="/landingPage">Dahsboard</a> --}}
+      </li>
+      <li>
+        <a href="/addCLients">
+          <img class="icon-img" src="../images/cliente.svg" alt="">
+        </a>
+        {{!-- <a class="side-menu-item" href="/landingPage">Clientes</a> --}}
+      </li>
+      <li>
+        <a href="/addIncome">
+          <img class="icon-img" src="../images/icon1.svg" alt="">
+        </a>
+        {{!-- <a class="side-menu-item" href="">Receita</a> --}}
+      </li>
+      <li>
+        <a href="">
+          <img class="icon-img" src="../images/icon3.svg" alt="">
+        </a>
+        {{!-- <a class="side-menu-item" href="">Renda</a> --}}
+      </li>
+    </ul>
+
+    <div>
+      <a href="" class="log-out">Log Out</a>
+    </div>
+
+  </nav>
+  <section id="body2" class="body2-pre">
+
+    <div class="values-list">
+      <div class="listIncoming">
+        <h2>Contas para receber</h2>
+        <h4>Total para receber: R$: {{ total }},00</h4>
+        {{#each resp}}
+        <div class="receitas" value="teste">
+          <p>Quantidade: {{ amount }}</p>
+          <p class="dates" name="date" value={{ maturity }}>Data de Vencimento: {{ maturityFormat }}</p>
+          <p>Valor total: R$ {{ valueTotal }}</p>
+          <p class="status" value="Paga">Status: Paga</p>
+        </div>
+        {{/each}}
+      </div>
+
+      <h2>Despesas</h2>
+      <div class="listDespesas">
+      </div>
+
+    </div>
+
+  </section>
+
+  <script type="text/javascript" src="../javascript/details.js"></script>
+</body>
+
+</html>
