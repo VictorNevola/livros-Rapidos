@@ -31,7 +31,7 @@
             <div>
                 <h2 class="loginTitle">Confirme seu e-mail</h2>
                 <p style="color: white; text-align: center">Acesse o link enviado para seu email </br>e complete seu cadastro</p>
-                <p style="color: white; text-align: center; margin-top:10px">Caso não tenhce recebido o e-mail, </br>confirme abaixo</p>
+                <p style="color: white; text-align: center; margin-top:10px">Caso não tenha recebido o e-mail, </br>confirme abaixo</p>
                 <form class="formL" action="/sendConfirmEmail" method="POST">
                     {{#if Message}}
                     <div class="error"> {{Message}}</div>
@@ -49,16 +49,3 @@
 </body>
 
 </html>
-{{!-- <p>Confirme sua conta pelo email enviado</p>
-<p>Não recebeu o email?</p>
-<h2>Confirme seu email:</h2>
-<form action="/sendConfirmEmail" method="POST">
-    <input type="email" name="email">
-    <button type="submit">Enviar!</button>
-</form>
-{{#if Message}}
-<div> {{Message}}</div>
-{{/if}}
-<a href="/">Home</a>
-<a href="/login">Acessar</a>
-<a href="/register">Cadastrar</a> --}}
