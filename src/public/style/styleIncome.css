@@ -50,40 +50,92 @@
   height: 60px;
 }
 
-.side-menu-item {
-  position: relative;
-  display: block;
-  top: -40px;
-  right: -50px;
-  text-decoration: none;
-  color: white;
+.income-container {
+  border: 1px solid rgba(0, 0, 0, 0.527);
+  border-radius: 20px ;
+  width: 68%;
+  margin: auto;
+  margin-top: 15px;
+  padding: 25px;
 }
 
-
-.clients-container {
+.form-container{
   display: flex;
-  border: 1px solid red;
-  padding: 10px;
+  flex-direction: column;
 }
 
-.buttons-container{
-  margin: 10px;
+.form-Insert{
+  display: flex;
+  text-align: right;
+  margin-top: 15px;
 }
 
-.delete {
-  background: red;
-  padding: 4px;
-  color: white;
-  margin: 5px;
+.form-Insert fieldset {
+  width: 100%;
+  border: none;
+  margin-bottom: 2%;
 }
 
-.hide {
-  display: none;
-}
-
-.Tittle {
+.form-Insert label{
   text-align: center;
-  margin: 30px 0px;
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.form-Insert a{
+  float: right;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  margin-right: 4px;
+  color: #223a45;
+}
+
+.form-Insert select{
+  float: right;
+  margin-right: 15px;
+  border: none;
+  width: 50%;
+  font-size: 15px;
+  background: transparent;
+  border: 1px solid rgba(128, 128, 128, 0.671);
+}
+
+.form-Insert input {
+  float: right;
+  width: 52%;
+  margin-right: 15px;
+  border: none;
+  border-bottom:1px solid black;
+  font-size: 15px;
+}
+
+.form-Insert strong {
+  float: right;
+  margin-right: 15px;
+  width: 52%;
+}
+
+.button-add {
+  text-align: center;
+  margin-bottom: 1%;
+}
+
+.button-add button {
+ background-color: #7da4e8;
+ padding: .5em;
+ border-radius: 55px;
+ width: 100px;
+ color: black;
+ font-size: 15px;
+ text-decoration: none;
+ border: none;
+ font-weight: bolder;
+}
+
+.title {
+  text-align: center;
+  margin-top: 15px;
 }
 
 .create-new-client {
@@ -97,10 +149,6 @@
 
 .sub-title > th {
   width: 250px;
-}
-
-.clients {
-  
 }
 
 .icon-img {
@@ -155,7 +203,7 @@
   list-style-type: none;
   width: 180px;
   position: absolute;
-  height: 150vh;
+  height: 92vh;
   top: 8vh;
   background-color: #253e4a;
   display: flex;
@@ -169,7 +217,7 @@
   list-style-type: none;
   width: 50px;  
   position: absolute;
-  height: 100vh;
+  height: 92vh;
   top: 8vh;
   background-color: #253e4a;
   display: flex;
@@ -199,31 +247,6 @@
 
 .late {
   color: red;
-}
-
-.graficos {
-  margin-left: 80px;
-  display: flex;
-}
-
-.chart {
-  width: 588px; 
-  height:  306px;
-}
-
-.canvas {
-  width: 588px;
-  height: 306px; 
-  display: block;
-}
-
-.chart2 {
-  margin-left: 20px;
-}
-
-.pie {
-  width: 250px; 
-  height:  100px;
 }
 
 .space > a {

@@ -21,9 +21,7 @@ document.getElementById('create-new-income').addEventListener('submit', function
   let category = document.querySelector("input[name=category]").value;
   
   if (option === "" || client === "" || amount === "" || valueUnit === "" || valueTotal === "" || formPGTO === "" || maturity === ""
-    || description === "" || category === "") {
-  if(option === "" || client === "" || amount === "" || valueUnit === "" || valueTotal === "" || formPGTO === "" || maturity === ""
-  || description === "" || category === ""){
+    || description === "" || category === ""){
     message("Campos não podem estar vazios, verificar!");
     return;
   };
@@ -67,12 +65,9 @@ function addIncomeDom(result) {
   }
 
   let divParent = document.querySelector('#income-List');
-  let divIncome = document.createElement('div')
+  let divIncome = document.createElement('div');
   divIncome.id = 'income';
   divIncome.innerHTML = `
-      <div>Cliente: ${result.nameClient}</div>
-      divIncome.id = 'income';
-      divIncome.innerHTML = `
       <div value="${result.idCliente}">Cliente: ${result.nameClient}</div>
       <div>Quantidade: ${result.amount}</div>
       <div>Valor Unitario: ${result.valueUnit}</div>
@@ -257,3 +252,15 @@ function updateButtons() {
     updateButton[i].onclick = updateBD;
   }
 }
+
+const navSlide = () => {
+  const burguer = document.querySelector('.burguer');
+  const nav = document.querySelector('.ul-horizontal ');
+  const push = document.querySelector('#body2');
+  burguer.addEventListener('click', () => {
+    nav.classList.toggle('nav-active');
+    push.classList.toggle('body2-style');
+  })
+}
+
+navSlide();
