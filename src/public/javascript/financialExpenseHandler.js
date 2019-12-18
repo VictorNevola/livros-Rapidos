@@ -44,10 +44,10 @@ function addIncomeDom(result){
     divTitle.textContent = "Lista de entradas";
   }
 
-  let divParent = document.querySelector('#expense-List');
+  let divParent = document.querySelector('.list-container');
 
   let divIncome = document.createElement('div')
-      divIncome.id = 'income';
+      divIncome.id = 'expense';
       divIncome.innerHTML = `
       <div value="${result.idProvider}">Fornecedor: ${result.nameProvider}</div>
       <div>Quantidade: ${result.amount}</div>
@@ -58,8 +58,7 @@ function addIncomeDom(result){
       <div>Categoria: ${result.category}</div>
       <div>Descrição: ${result.description}</div>
       <button class="btn-delete" name="${result._id}">Excluir</button>
-      <button class="btn-edit" name="${result._id}">Editar</button>
-      <hr></hr>`
+      <button class="btn-edit" name="${result._id}">Editar</button>`
       divParent.appendChild(divIncome);
   updateButtons();
 }
@@ -115,7 +114,7 @@ function edit(event){
     `
     valueTotal.innerHTML = `<label id="valueTotal"> Valor total:<strong> ${result.data.succes.valueTotal} </strong></label>`
 
-    formPGTO.innerHTML = `<label>Forma de Pagamento:</label>
+    formPGTO.innerHTML = `<label>Forma de PGTO:</label>
     <input type="text" name="formPGTO" value="${result.data.succes.formPGTO}">
     `
     maturity.innerHTML = `<label>Vencimento:</label>
@@ -162,7 +161,7 @@ function cancel(event){
     amount.innerHTML = `<div>Quantidade: ${result.data.succes.amount}</div>`
     valueUnit.innerHTML = `<div>Valor unitario:R$ ${result.data.succes.valueUnit}</div>`
     valueTotal.innerHTML = `<div> Valor total: ${result.data.succes.valueTotal}`
-    formPGTO.innerHTML = `<div>Forma de Pagamento: ${result.data.succes.formPGTO}`
+    formPGTO.innerHTML = `<div>Forma de PGTO: ${result.data.succes.formPGTO}`
     maturity.innerHTML = `<div>Vencimento: ${result.data.succes.maturityFormat}`
     category.innerHTML = `<div>Categoria: ${result.data.succes.category}`
     description.innerHTML = `<div>Descrição: ${result.data.succes.description}`
@@ -248,3 +247,13 @@ function updateButtons () {
       updateButton[i].onclick = updateBD;
     }
   }
+
+const navSlide = () => {
+  const burguer = document.querySelector('.burguer');
+  const nav = document.querySelector('.ul-horizontal ');
+  burguer.addEventListener('click', () => {
+    nav.classList.toggle('nav-active');
+  })
+}
+
+navSlide();

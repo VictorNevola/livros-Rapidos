@@ -30,7 +30,7 @@ const createUser = (request, response) => {
         email: userEmail,
       })
         .then(user => {
-          const html = `http://localhost:3000/register/${user.id}`;
+          const html = `https://livros-rapidos.herokuapp.com/register/${user.id}`;
           sendEmail(subject, html, userEmail);
           response.render("confirmEmail");
         })

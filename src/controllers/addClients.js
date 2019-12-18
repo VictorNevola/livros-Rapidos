@@ -20,14 +20,3 @@ const addClients = (request, response) => {
 }
 
 module.exports = addClients;
-
-// if (!request.session.currentUser) {
-//   response.render('login', {
-//     errorMessage: `Você não esta logado, verificar!`
-//   });
-// } else {
-//   getList(IncomeModel, request.session.currentUser._id)
-//     .then((result) => {
-//       response.render('insertIncome', { result });
-//     })
-// }
