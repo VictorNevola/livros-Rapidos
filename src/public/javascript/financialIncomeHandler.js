@@ -77,8 +77,7 @@ function addIncomeDom(result) {
       <div><strong>Categoria: </strong>${result.category}</div>
       <div><strong>Descrição: </strong>${result.description}</div>
       <button class="btn-delete" name="${result._id}">Excluir</button>
-      <button class="btn-edit" name="${result._id}">Editar</button>
-      <hr></hr>`
+      <button class="btn-edit" name="${result._id}">Editar</button>`
   divParent.appendChild(divIncome);
   updateButtons();
 }
@@ -133,9 +132,9 @@ function edit(event){
     valueUnit.innerHTML = `<label ><strong>Valor unitario: </strong>R$</label>
     <input class="valueUnit" type="number" name="valueUnit" value="${result.data.succes.valueUnit}" step="any" title="Adicionar valor unitario, Não utilizar virgula somente ponto!">
     `
-    valueTotal.innerHTML = `<label id="valueTotal"><strong>Valor total: </strong>R$ ${result.data.succes.valueTotal}</label>`
+    valueTotal.innerHTML = `<label id="valueTotal">Valor total: <strong> R$ ${result.data.succes.valueTotal} </strong> </label>`
 
-    formPGTO.innerHTML = `<label><strong>Forma de Pagamento: </strong></label>
+    formPGTO.innerHTML = `<label><strong>Forma de PGTO: </strong></label>
     <input type="text" name="formPGTO" value="${result.data.succes.formPGTO}">
     `
     maturity.innerHTML = `<label><strong>Vencimento: </strong></label>
@@ -181,7 +180,7 @@ function cancel(event) {
     amount.innerHTML = `<div><strong>Quantidade: </strong>${result.data.succes.amount}</div>`
     valueUnit.innerHTML = `<div><strong>Valor unitario: </strong>R$ ${result.data.succes.valueUnit}</div>`
     valueTotal.innerHTML = `<div><strong>Valor total: </strong>R$ ${result.data.succes.valueTotal}`
-    formPGTO.innerHTML = `<div><strong>Forma de Pagamento: </strong>${result.data.succes.formPGTO}`
+    formPGTO.innerHTML = `<div><strong>Forma de PGTO: </strong>${result.data.succes.formPGTO}`
     maturity.innerHTML = `<div><strong>Vencimento: </strong>${result.data.succes.maturityFormat}`
     category.innerHTML = `<div><strong>Categoria: </strong>${result.data.succes.category}`
     description.innerHTML = `<div><strong>Descrição: </strong>${result.data.succes.description}`

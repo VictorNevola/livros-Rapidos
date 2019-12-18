@@ -114,8 +114,6 @@
 
 
 <section id="income-List">
-  
-{{#if financialIncomes}}
     <h3> Lista de entradas </h3> 
     <div class="list-container">
     {{#each financialIncomes}}
@@ -124,7 +122,7 @@
         <div> <strong>Quantidade: </strong>{{amount}}</div>
         <div> <strong>Valor unitario: </strong>R$  {{valueUnit}}</div>
         <div><strong>Valor Total: </strong>R$ {{valueTotal}}</div>
-        <div><strong>Forma de Pagamento:  </strong>{{formPGTO}}</div>
+        <div><strong>Forma de PGTO:  </strong>{{formPGTO}}</div>
         <div><strong>Vencimento:  </strong>{{maturityFormat}}</div>
         <div><strong>Categoria:  </strong>{{category}}</div>
         <div><strong>Descrição:  </strong> {{description}}</div>
@@ -132,11 +130,7 @@
         <button class="btn-edit" name="{{_id}}" type="button">Editar</button>
     </div>
     {{/each}}
-    </div>
-    {{else}}
-        <h3>Não possui nenhuma entrada</h3>
-{{/if}}
-  
+    </div>  
 </section>
 
 <script type="text/javascript" src="../javascript/financialIncome.js"></script>
