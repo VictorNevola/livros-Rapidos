@@ -25,7 +25,9 @@ document.getElementById('create-new-expense').addEventListener('submit', (event)
     message("Campos não podem estar vazios, verificar!");
     return;
   };
-
+  console.log(valueTotal);
+  valueTotal = valueTotal.slice(3, valueTotal.length);
+  console.log(valueTotal);
   expenseHandler.createExpenses(idUser, idProvider, nameProvider, amount, valueUnit, valueTotal, formPGTO, maturity, maturityFormat, description, category)
   .then((expense)=>{
     addIncomeDom(expense.data)

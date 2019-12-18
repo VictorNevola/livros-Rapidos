@@ -4,7 +4,7 @@ const navSlide = () => {
   const push = document.querySelector('#body2');
   burguer.addEventListener('click', () => {
     nav.classList.toggle('nav-active');
-    push.classList.toggle('body2-style');
+    // push.classList.toggle('body2-style');
   })
 }
 

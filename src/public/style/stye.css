@@ -27,15 +27,63 @@ ul > li {
 
 .baner {
   background: url('../images/sabri-tuzcu-wkO0q0UTqc8-unsplash.jpg') no-repeat center center;
-  background-size: 1400px 650px;
-  padding: 0 0 350px  0;
+  /* background-size: 1400px 650px; */
+  background-size: 100%;
+  padding: 0 0 650px  0;
   text-align: center;
   /* display: block;
   margin: auto; */
 }
 
+.baner2 {
+  width: 100%;
+  /* whatever width you want */
+  display: inline-block;
+  position: relative;
+  background-size: contain !important;
+  background: url('../images/sabri-tuzcu-wkO0q0UTqc8-unsplash.jpg') top center no-repeat;
+  margin: 0 auto;
+}
+
+.baner3 {
+  background: url('../images/sabri-tuzcu-wkO0q0UTqc8-unsplash.jpg') top center no-repeat;
+  height: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding-bottom: 50%;
+}
+
+.baner3-inner {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  color: white;
+  height: auto;
+  margin-top: 300px;
+}
+
+.baner2:after {
+  padding-top: 70%;
+  /* this llama image is 800x600 so set the padding top % to match 800/600 = .75 */
+  display: block;
+  content: '';
+}
+
+.text {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  color: black;
+  text-align: center;
+  margin-top: 5%;
+}
+
 .tittle {
-  padding-top: 175px;
+  /* padding-top: 175px; */
   padding-bottom: 15px;
   font-size: xx-large;
   color: white;

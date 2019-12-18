@@ -167,4 +167,87 @@ window.addEventListener('load', () => {
     .catch(error => {
       console.log(error);
     })
+
+    clientHandler.getData2()
+    .then(resp => {
+      let datas = [];
+      let values = [];
+      let sorted = resp.data.sort(function (a, b) {
+        if (a._id > b._id) {
+          return 1;
+        }
+        if (a._id < b._id) {
+          return -1;
+        }
+        return 0;
+      });
+      for (let i = 0; i < sorted.length; i += 1) {
+        datas.push(sorted[i]._id);
+        values.push(sorted[i].count);
+      };
+      new Chart(document.getElementById("line-chart3"), {
+        type: 'line',
+        data: {
+          labels: datas,
+          datasets: [{
+            data: values,
+            label: "Despesas",
+            borderColor: "#3e95cd",
+            fill: false
+          }
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Despesas'
+          }
+        }
+      })
+    })
+    .catch(error => {
+      console.log(error)
+    })
+    clientHandler.getDataExpensePerClient()
+    .then(resp => {
+      console.log(resp.data);
+      let datas = [];
+      let values = [];
+      let sorted = resp.data.sort(function (a, b) {
+        if (a._id > b._id) {
+          return 1;
+        }
+        if (a._id < b._id) {
+          return -1;
+        }
+        return 0;
+      });
+      for (let i = 0; i < sorted.length; i += 1) {
+        datas.push(sorted[i]._id);
+        values.push(sorted[i].soma);
+      };
+      new Chart(document.getElementById("bar-chart2"), {
+        type: 'bar',
+        data: {
+          labels: datas,
+          datasets: [
+            {
+              label: "R$",
+              backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+              data: values
+            }
+          ]
+        },
+        options: {
+          legend: { display: false },
+          title: {
+            display: true,
+            text: 'Despesa por cliente'
+          }
+        }
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    })
 })
