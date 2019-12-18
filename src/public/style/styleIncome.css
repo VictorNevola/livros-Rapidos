@@ -29,6 +29,10 @@
   margin-right: 5px;
   background: white;
 }
+.icon-img {
+  width: 50px;
+  padding: 10px;
+}
 
 .nav-side {
   float: left;
@@ -48,6 +52,11 @@
 
 .nav-side > ul > li {
   height: 60px;
+}
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .income-container {
@@ -126,7 +135,7 @@
  padding: .5em;
  border-radius: 55px;
  width: 100px;
- color: black;
+ color: #fff;
  font-size: 15px;
  text-decoration: none;
  border: none;
@@ -138,58 +147,14 @@
   margin-top: 15px;
 }
 
-.create-new-client {
-  text-align: center;
-  margin: 30px 0px;
-}
-
-#data-table {
-  margin: auto;
-}
-
-.sub-title > th {
-  width: 250px;
-}
-
-.icon-img {
-  width: 50px;
-  padding: 10px;
-}
-
 .inputs {
   margin-bottom: 20px;
-  /* background: transparent; */
   border: none;
   border-bottom: 1px solid black;
   color: black;
   width: 230px;
   height: 30px;
   font-size: 18px;
-}
-
-.inputsChange {
-  /* margin-bottom: 20px; */
-  /* background: grey; */
-  box-shadow: 0px 0px 1px black;
-  border: none;
-  color: black;
-  width: 250px;
-  height: 30px;
-  font-size: 18px;
-}
-
-.button {
-  background-color: #7da4e8;
-  padding: .5em;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  border-radius: 15px;
-  width: 120px;
-  color: black;
-  /* font-family: 'Oswald'; */
-  font-size: 15px;
-  text-decoration: none;
-  border: none;
 }
 
 .burguer div {
@@ -252,4 +217,90 @@
 .space > a {
   color: white;
   text-decoration: none;
+}
+
+#income-List {
+  border: 1px solid rgba(0, 0, 0, 0.527);
+  border-radius: 20px;
+  width: 70%;
+  margin: auto;
+  margin-top: 10px;
+  padding: 25px;
+  padding-top: 5px;
+}
+
+.list-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 10px;
+}
+
+#income-List h3 {
+  text-align: center;
+  font-size: 20px;
+}
+#income button {
+  margin: 5px 2px;
+  width: 75px;
+}
+.btn-delete{
+  color: #fff;
+  background-color: #CF000F;
+  border-color: #CF000F;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.btn-edit {
+  color: #fff;
+  background-color: #7da4e8;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+#clients {
+  border: none;
+  font-size: 15px;
+  background: transparent;
+  border: 1px solid rgba(128, 128, 128, 0.671);
+}
+
+.btn-update {
+  color: #fff;
+  background-color: #CF000F;
+  border-color: #CF000F;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.btn-cancel{
+  color: #fff;
+  background-color: #7da4e8;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+#income input {
+  border: none;
+  border-bottom:1px solid black;
+  font-size: 15px;
+  width: 40%;
+}
+
+#income hr {
+  margin: 10px 0;
+}
+
+#income {
+  margin-top: 10px;
+  height: 190px;
+  border-bottom: 1px solid black ;
 }

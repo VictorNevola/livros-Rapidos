@@ -107,35 +107,36 @@
     </div>
     <div class="button-add">
     <button type="submit">Adicionar</button>
+    <div class="message-container"></div>
     </div>
   </form>
-  <div class="message-container"></div>
 </div>
 
 
 <section id="income-List">
+  
 {{#if financialIncomes}}
-    <h3> Lista de entradas </h3>
+    <h3> Lista de entradas </h3> 
+    <div class="list-container">
     {{#each financialIncomes}}
     <div id="income">
-        <div value="{{idCliente}}">Cliente: {{nameClient}}</div>
-        <div>Quantidade: {{amount}}</div>
-        <div>Valor unitario: R$ {{valueUnit}}</div>
-        <div>Valor Total: R$ {{valueTotal}}</div>
-        <div>Forma de Pagamento: {{formPGTO}}</div>
-        <div>Vencimento: {{maturityFormat}}</div>
-        <div>Categoria: {{category}}</div>
-        <div>Descrição: {{description}}</div>
+        <div value="{{idCliente}}"> <strong>Cliente: </strong>{{nameClient}}</div>
+        <div> <strong>Quantidade: </strong>{{amount}}</div>
+        <div> <strong>Valor unitario: </strong>R$  {{valueUnit}}</div>
+        <div><strong>Valor Total: </strong>R$ {{valueTotal}}</div>
+        <div><strong>Forma de Pagamento:  </strong>{{formPGTO}}</div>
+        <div><strong>Vencimento:  </strong>{{maturityFormat}}</div>
+        <div><strong>Categoria:  </strong>{{category}}</div>
+        <div><strong>Descrição:  </strong> {{description}}</div>
         <button class="btn-delete" name="{{_id}}" type="button">Excluir</button>
         <button class="btn-edit" name="{{_id}}" type="button">Editar</button>
-        <HR></HR>
     </div>
     {{/each}}
-
+    </div>
     {{else}}
         <h3>Não possui nenhuma entrada</h3>
 {{/if}}
-
+  
 </section>
 
 <script type="text/javascript" src="../javascript/financialIncome.js"></script>

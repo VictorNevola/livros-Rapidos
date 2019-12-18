@@ -20,7 +20,7 @@ const addIncomeBD = (request, response) => {
       amount: amount,
       valueUnit: valueUnit,
       valueTotal: valueTotal,
-      valueTotalInt: parseFLoat(valueTotal),
+      valueTotalInt: parseFloat(valueTotal),
       formPGTO: formPGTO,
       maturity: maturity,
       maturityFormat: maturityFormat,
