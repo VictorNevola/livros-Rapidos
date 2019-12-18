@@ -6,7 +6,8 @@
 }
 
 .body2-pre {
-  padding-left: 5%;
+  padding-left: 25%;
+  padding-right: 25%;
 }
 
 .body2-style {
@@ -17,14 +18,19 @@
 .dash-nav {
   display: flex;
   min-height: 8vh;
-  background: rgba(2,0,36,1);;
+  background: #223A45;;
   align-items: center;
   justify-content: space-between;
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;}
+
 .log-out{
   text-decoration: none;
-  color: rgba(2,0,36,1);;
+  color: #223A45;;
   padding: 8px;
   margin-right: 5px;
   background: white;
@@ -34,7 +40,7 @@
   float: left;
   width: 50px;
   min-height: 100vh;
-  background: rgba(2,0,36,1);;
+  background: #223A45;;
   position: fixed;
   z-index: 50;
   transition:width .1s ease;
@@ -131,7 +137,7 @@
 }
 
 .button {
-  background-color: rgba(2,0,36,1);;
+  background-color: #223A45;;
   padding: .5em;
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -157,7 +163,7 @@
   position: absolute;
   height: 92vh;
   top: 8vh;
-  background-color: rgba(2,0,36,1);;
+  background-color: #223A45;;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -171,7 +177,7 @@
   position: absolute;
   height: 92vh;
   top: 8vh;
-  background-color: rgba(2,0,36,1);;
+  background-color: #223A45;;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -6,7 +6,7 @@ const {home, register, createUser, confirmUser, login,
     deleteClients,updateClients,
     sendChangePassword, changePasswordLink, updatePassword, addIncome,
     addClients, save, addIncomeBD, secret, deletIncomeBD,
-    findOneById, updateIncomeBD, landingPage, clientDetail, findChart, clientChart, incomeChart, incomeClient, addExpenses,
+    findOneById, updateIncomeBD, landingPage, clientDetail, ExpensesClient,expensePerClient ,findChart, clientChart, incomeChart, incomeClient, addExpenses,
     addExpensesBD, deletExpenseBD, findExpenseBD, updateExpenseBD, logout} = require('../controllers/index');
 
 router.get('/', home);
@@ -37,6 +37,8 @@ router.get('/chart', findChart);
 router.get('/chart2', clientChart);
 router.get('/chart3', incomeChart);
 router.get('/chart4', incomeClient);
+router.get('/chartL', ExpensesClient);
+router.get('/chartE', expensePerClient);
 router.get('/addExpenses', addExpenses);
 router.post('/addExpenseBD', addExpensesBD);
 router.delete('/deletexpenseBD/:id', deletExpenseBD);

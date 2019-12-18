@@ -79,7 +79,7 @@ function createDiv(id, name, email, tellphone) {
   <input type="button" id="cancel_button1" value="Cancel" class="hide" style="margin-right:10px"
   onclick="save(this,'cancel')">
   <input class="button" type="button" value="Deletar" onclick="myClick(this,'deletar')">
-  <a value={{_id}} href="/detail/{{_id}}">Detalhes</a>
+  <a value={{_id}} class="button details" href="/detail/{{_id}}">Detalhes</a>
   </td>
 </tr>
   `

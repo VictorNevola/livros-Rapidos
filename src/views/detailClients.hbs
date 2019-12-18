@@ -30,7 +30,7 @@
         <a href="/addIncome">Receita</a>
       </li>
       <li class="space">
-        <a href="/addClients">Teste</a>
+        <a href="/addExpenses">Teste</a>
       </li>
     </ul>
 
@@ -54,7 +54,7 @@
         {{!-- <a class="side-menu-item" href="">Receita</a> --}}
       </li>
       <li>
-        <a href="">
+        <a href="/addExpenses">
           <img class="icon-img" src="../images/icon3.svg" alt="">
         </a>
         {{!-- <a class="side-menu-item" href="">Renda</a> --}}
@@ -82,8 +82,17 @@
         {{/each}}
       </div>
 
+      <div class="listDespesas listIncoming">
       <h2>Despesas</h2>
-      <div class="listDespesas">
+        <h4>Total para pagar: R$: {{ totalE }},00</h4>
+        {{#each resposta}}
+        <div class="receitas" value="teste">
+          <p>Quantidade: {{ amount }}</p>
+          <p class="dates" name="date" value={{ maturity }}>Data de Vencimento: {{ maturityFormat }}</p>
+          <p>Valor total: R$ {{ valueTotal }}</p>
+          <p class="status" value="Paga">Status: Paga</p>
+        </div>
+        {{/each}}
       </div>
 
     </div>
